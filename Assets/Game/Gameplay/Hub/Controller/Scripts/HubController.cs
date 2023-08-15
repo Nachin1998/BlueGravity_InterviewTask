@@ -1,0 +1,31 @@
+using UnityEngine;
+
+using BlueGravity.Common.Controller;
+using BlueGravity.Common.Currencies;
+
+using BlueGravity.Game.Hub.Player;
+
+namespace BlueGravity.Game.Hub.Controller
+{
+    public class HubController : SceneController
+    {
+        [Header("Hub Controller Configuration")]
+        [SerializeField] private PlayerController playerController = null;
+        [SerializeField] private CurrenciesController currenciesController = null;
+        [SerializeField] private CameraController cameraController = null;
+
+        protected override void Awake()
+        {
+            currenciesController.Init();
+            cameraController.SetTarget(playerController.transform);
+        }
+
+        protected override void OnDisable()
+        {
+        }
+
+        protected override void OnEnable()
+        {
+        }
+    }
+}

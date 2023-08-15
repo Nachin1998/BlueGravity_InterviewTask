@@ -1,0 +1,16 @@
+{
+    "name": "Hub",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2cbd3645b31551849ae53fde115d32d2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

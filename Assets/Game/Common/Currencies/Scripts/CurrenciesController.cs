@@ -20,7 +20,7 @@ namespace BlueGravity.Common.Currencies
 
         private const string currenciesPath = "/currencies";
 
-        private void Awake()
+        public void Init()
         {
             currenciesValues = new List<CurrencyModel>();
             LoadCurrencies();
