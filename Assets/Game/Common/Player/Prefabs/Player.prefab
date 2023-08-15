@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  cameraPositionOffset: {x: 0, y: 0, z: 3.67}
+  cameraPositionOffset: {x: 0, y: 0, z: 5}
   rb2d: {fileID: 6376750782547862633}
 --- !u!50 &6376750782547862633
 Rigidbody2D:
