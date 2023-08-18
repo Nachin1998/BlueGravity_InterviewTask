@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 7606987364450382999}
   - component: {fileID: 7606987364450382996}
   - component: {fileID: 5034167917956196031}
+  - component: {fileID: 5658065222987225464}
   m_Layer: 0
   m_Name: prefab_baseCharacter
   m_TagString: Untagged
@@ -282,6 +283,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15721609, y: 0.20112759}
   m_EdgeRadius: 0
+--- !u!114 &5658065222987225464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606987364450382997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e2bbd76e8c9b5479a587b73909130c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headAccessoriesRenderer: {fileID: 7606987363883059327}
+  headHairRenderer: {fileID: 7606987364950123232}
+  bodyRenderer: {fileID: 7606987363133507856}
 --- !u!1 &7606987364950123246
 GameObject:
   m_ObjectHideFlags: 0
