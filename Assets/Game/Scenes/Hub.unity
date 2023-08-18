@@ -23674,11 +23674,6 @@ MonoBehaviour:
   playerController: {fileID: 1491128150}
   currenciesController: {fileID: 1519579892}
   cameraController: {fileID: 2004782863}
---- !u!1 &474411913 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3658136518947495265, guid: 2e1c11ed6b5721149994990d1fc12ac4, type: 3}
-  m_PrefabInstance: {fileID: 3658136518979592277}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &554805668
 GameObject:
   m_ObjectHideFlags: 0
@@ -24231,38 +24226,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6962785211802730674, guid: 2e1c11ed6b5721149994990d1fc12ac4, type: 3}
   m_PrefabInstance: {fileID: 3658136518979592277}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474411913}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cf9f2f9228bd0e419cf88dede760547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &1491128154
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 474411913}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1519579890
 GameObject:
   m_ObjectHideFlags: 0
@@ -24448,10 +24417,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3658136518947495264, guid: 2e1c11ed6b5721149994990d1fc12ac4, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3658136518947495265, guid: 2e1c11ed6b5721149994990d1fc12ac4, type: 3}
       propertyPath: m_Name
       value: Player
