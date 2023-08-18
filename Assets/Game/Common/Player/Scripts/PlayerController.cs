@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace BlueGravity.Game.Hub.Player
+namespace BlueGravity.Common.Player
 {
     public class PlayerController : MonoBehaviour
     {

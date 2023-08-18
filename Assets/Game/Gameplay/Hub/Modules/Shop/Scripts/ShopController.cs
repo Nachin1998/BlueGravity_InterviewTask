@@ -31,6 +31,14 @@ public class ShopController : MonoBehaviour
             {
                 Configure();
                 ToggleView(true);
+            }, 
+            onCustomerInRange: () =>
+            {
+                ToggleView(true);
+            },
+            onCustomerLeave: () =>
+            {
+                ToggleView(false);
             });
 
         confirmationView.Init(

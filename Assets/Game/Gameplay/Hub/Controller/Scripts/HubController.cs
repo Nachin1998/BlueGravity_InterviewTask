@@ -2,8 +2,7 @@ using UnityEngine;
 
 using BlueGravity.Common.Controller;
 using BlueGravity.Common.Currencies;
-
-using BlueGravity.Game.Hub.Player;
+using BlueGravity.Common.Player;
 
 namespace BlueGravity.Game.Hub.Controller
 {
