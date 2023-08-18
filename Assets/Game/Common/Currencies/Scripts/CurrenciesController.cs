@@ -18,7 +18,7 @@ namespace BlueGravity.Common.Currencies
 
         private List<CurrencyModel> currenciesValues = null;
 
-        private const string currenciesPath = "/currencies";
+        private const string currenciesPath = "/currencies.dat";
 
         public void Init()
         {
@@ -70,6 +70,31 @@ namespace BlueGravity.Common.Currencies
 
             string data = File.ReadAllText(Application.persistentDataPath + currenciesPath);
             currenciesValues = JsonConvert.DeserializeObject<List<CurrencyModel>>(data);
+        }
+
+        public int GetCurrencyValue(CurrencySO currency)
+        {
+            return GetCurrencyValue(currency.Id);
+        }
+
+        public int GetCurrencyValue(string currencyId)
+        {
+            CurrencyModel model = GetCurrencyModel(currencyId);
+            return model.Value;
+        }
+
+        private CurrencyModel GetCurrencyModel(string currencyId)
+        {
+            for (int i = 0; i < currenciesValues.Count; i++)
+            {
+                if (currenciesValues[i].Id == currencyId)
+                {
+                    return currenciesValues[i];
+                }
+            }
+
+            Debug.LogError("Currency of id " + currencyId + " was not found.");
+            return null;
         }
     }
 }
