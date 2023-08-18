@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteCharacterView : CharacterView<SpriteRenderer>
@@ -8,15 +6,10 @@ public class SpriteCharacterView : CharacterView<SpriteRenderer>
     public override Sprite HeadHair { get => headHairRenderer.sprite; }
     public override Sprite Body { get => bodyRenderer.sprite; }
 
-    // Start is called before the first frame update
-    void Start()
+    public override void CopyBody(CharacterView<SpriteRenderer> character)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        headAccessoriesRenderer.sprite = character.HeadAccessory;
+        headHairRenderer.sprite = character.HeadHair;
+        bodyRenderer.sprite = character.Body;
     }
 }

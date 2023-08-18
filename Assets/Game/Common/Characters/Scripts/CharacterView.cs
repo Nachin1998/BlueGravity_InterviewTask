@@ -10,4 +10,6 @@ public abstract class CharacterView<T> : MonoBehaviour where T : Component
     public abstract Sprite HeadAccessory { get; }
     public abstract Sprite HeadHair { get; }
     public abstract Sprite Body { get; }
+
+    public abstract void CopyBody(CharacterView<T> character);
 }
