@@ -22,7 +22,7 @@ public class ShopController : MonoBehaviour
 
     private List<PurchasedItemModel> purchasedItems = null;
 
-    private const string purchaseHistoryPath = "/purchasehistory.dat";
+    private const string purchaseHistoryFileName = "purchasehistory";
 
     public void Init()
     {
@@ -66,25 +66,31 @@ public class ShopController : MonoBehaviour
     private void OnDisable()
     {
         SavePurchaseHistory();
+        ResetShopItems();
     }
 
     private void SavePurchaseHistory()
     {
-        string data = JsonConvert.SerializeObject(purchasedItems);
-        File.WriteAllText(Application.persistentDataPath + purchaseHistoryPath, data);
+        FileHandler.SaveFile(purchaseHistoryFileName, purchasedItems);
+    }
+
+    private void ResetShopItems()
+    {
+        for (int i = 0; i < items.Count; i++)
+        {
+            items[i].SetIsPurchased(false);
+        }
     }
 
     private List<PurchasedItemModel> LoadPurchaseHistory()
     {
-        if (!File.Exists(Application.persistentDataPath + purchaseHistoryPath))
+        if (FileHandler.TryLoadFile(purchaseHistoryFileName, out List<PurchasedItemModel> data))
         {
-            return new List<PurchasedItemModel>();
+            data ??= new List<PurchasedItemModel>();
+            return data;
         }
 
-        string data = File.ReadAllText(Application.persistentDataPath + purchaseHistoryPath);
-        List<PurchasedItemModel> models = JsonConvert.DeserializeObject<List<PurchasedItemModel>>(data);
-        models ??= new List<PurchasedItemModel>();
-        return models;
+        return new List<PurchasedItemModel>();
     }
 
     private void Configure()

@@ -18,7 +18,7 @@ namespace BlueGravity.Common.Currencies
 
         private List<CurrencyModel> currenciesValues = null;
 
-        private const string currenciesPath = "/currencies.dat";
+        private const string currenciesFileName = "currencies";
 
         public void Init()
         {
@@ -28,16 +28,12 @@ namespace BlueGravity.Common.Currencies
 
         private void OnDisable()
         {
-            if (!debugMode)
-            {
-                SaveCurrencies();
-            }
+            SaveCurrencies();
         }
 
         private void SaveCurrencies()
         {
-            string data = JsonConvert.SerializeObject(currenciesValues);
-            File.WriteAllText(Application.persistentDataPath + currenciesPath, data);
+            FileHandler.SaveFile(currenciesFileName, currenciesValues);
         }
 
         private void LoadCurrencies()
@@ -57,19 +53,17 @@ namespace BlueGravity.Common.Currencies
 
         private void CheckLocalFile()
         {
-            bool hasData = File.Exists(Application.persistentDataPath + currenciesPath);
-
-            if (!hasData)
+            if (FileHandler.TryLoadFile(currenciesFileName, out List<CurrencyModel> data))
+            {
+                currenciesValues = data;
+            }
+            else
             {
                 for (int i = 0; i < currencies.Count; i++)
                 {
                     currenciesValues.Add(new CurrencyModel(currencies[i].Id, 0));
                 }
-                return;
             }
-
-            string data = File.ReadAllText(Application.persistentDataPath + currenciesPath);
-            currenciesValues = JsonConvert.DeserializeObject<List<CurrencyModel>>(data);
         }
 
         public int GetCurrencyValue(CurrencySO currency)

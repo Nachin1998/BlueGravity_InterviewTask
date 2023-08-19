@@ -2,6 +2,7 @@
     "name": "Hub",
     "rootNamespace": "",
     "references": [
+        "GUID:d680cbc9d2ce2d441a76692d329a7ee4",
         "GUID:2cbd3645b31551849ae53fde115d32d2",
         "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
