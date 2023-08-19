@@ -22,8 +22,9 @@ public class ShopItemSO : ScriptableObject
     public bool IsPurchased { get => isPurchased; }
     public float ViewSize { get => viewSize; }
 
-    public void SetIsPurchased(bool status)
+    public void ToggleIsPurchased(bool status)
     {
         isPurchased = status;
+        item.ToggleIsUnlocked(status);
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad629d36b669974cb0a4826b9a70f95, type: 3}
+  m_Name: category_hair
+  m_EditorClassIdentifier: 
+  id: hair
+  items:
+  - {fileID: 11400000, guid: 35cb8fceef2944e44b2e8e0ce23b639e, type: 2}
+  - {fileID: 11400000, guid: 8a65cdf8c9e4c0f4690f35d2a3028131, type: 2}
+  - {fileID: 11400000, guid: 94b35e45b2e18cf4aa053610bcdd0705, type: 2}

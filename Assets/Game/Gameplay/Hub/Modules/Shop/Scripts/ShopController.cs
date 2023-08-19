@@ -5,7 +5,6 @@ using UnityEngine;
 
 using BlueGravity.Common.Currencies;
 
-using Newtonsoft.Json;
 using System;
 
 public class ShopController : MonoBehaviour
@@ -26,6 +25,8 @@ public class ShopController : MonoBehaviour
 
     public void Init()
     {
+        ConfigureItems();
+
         view.Init(confirmationView.Configure, 
             onPanelClosed: () =>
             {
@@ -36,10 +37,6 @@ public class ShopController : MonoBehaviour
         shopKeeperView.Init(
             onInteracted: () =>
             {
-                if (purchasedItems == null)
-                {
-                    purchasedItems = LoadPurchaseHistory();
-                }
                 Configure();
                 ToggleView(true);
             }, 
@@ -69,6 +66,21 @@ public class ShopController : MonoBehaviour
         ResetShopItems();
     }
 
+    private void ConfigureItems()
+    {
+        purchasedItems = LoadPurchaseHistory();
+
+        for (int i = 0; i < purchasedItems.Count; i++)
+        {
+            ShopItemSO item = GetShopItem(purchasedItems[i].ItemId);
+
+            if (item != null)
+            {
+                item.ToggleIsPurchased(purchasedItems[i].IsPurchased);
+            }
+        }
+    }
+
     private void SavePurchaseHistory()
     {
         FileHandler.SaveFile(purchaseHistoryFileName, purchasedItems);
@@ -78,7 +90,7 @@ public class ShopController : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-            items[i].SetIsPurchased(false);
+            items[i].ToggleIsPurchased(false);
         }
     }
 
@@ -95,16 +107,6 @@ public class ShopController : MonoBehaviour
 
     private void Configure()
     {
-        for (int i = 0; i < purchasedItems.Count; i++)
-        {
-            ShopItemSO item = GetShopItem(purchasedItems[i].ItemId);
-
-            if (item != null)
-            {
-                item.SetIsPurchased(purchasedItems[i].IsPurchased);
-            }
-        }
-
         view.Configure(items);
     }
 
@@ -131,7 +133,7 @@ public class ShopController : MonoBehaviour
         {
             currenciesController.SubstractCurrency(item.CurrencyType, item.Price);
             purchasedItems.Add(new PurchasedItemModel(item.Id, true));
-            item.SetIsPurchased(true);
+            item.ToggleIsPurchased(true);
             confirmationView.Toggle(false);
             Debug.Log("Item Purchased successfully!");
             onSuccess?.Invoke();
@@ -141,7 +143,6 @@ public class ShopController : MonoBehaviour
             Debug.LogWarning("Not enough " + item.CurrencyType.Id);
             onFailure?.Invoke();
         }
-
     }
 
     public void ToggleView(bool status)
