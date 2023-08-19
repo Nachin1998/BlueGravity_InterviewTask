@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShopKeeperView : MonoBehaviour, IInteractable
 {
     [SerializeField] private InteractionArea interactionArea = null;
+    [SerializeField] private GameObject speechBubble = null;
 
     private bool isInteractable = true;
     private Action OnInteracted = null;
@@ -17,7 +18,7 @@ public class ShopKeeperView : MonoBehaviour, IInteractable
             {
                 if (obj.TryGetComponent(out IShopCustomer customer))
                 {
-                    isInteractable = true;
+                    ProcessInteraction(true);
                     onCustomerInRange?.Invoke();
                 }
             },
@@ -25,10 +26,16 @@ public class ShopKeeperView : MonoBehaviour, IInteractable
             {
                 if (obj.TryGetComponent(out IShopCustomer customer))
                 {
-                    isInteractable = false;
+                    ProcessInteraction(false);
                     onCustomerLeave?.Invoke();
                 }
             });
+    }
+
+    private void ProcessInteraction(bool isInRange)
+    {
+        speechBubble.SetActive(isInRange);
+        isInteractable = isInRange;
     }
 
     public void Interact()
