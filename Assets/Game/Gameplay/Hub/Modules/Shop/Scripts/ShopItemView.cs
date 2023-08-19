@@ -16,9 +16,11 @@ public class ShopItemView : MonoBehaviour
 
     private string id = string.Empty;
     private int price = 0;
+    private bool isPurchased = false;
 
     public string Id { get => id; }
     public int Price { get => price; }
+    public bool IsPurchased { get => isPurchased; }
 
     public void Init(Action<ShopItemView> onItemPressed)
     {
@@ -30,7 +32,9 @@ public class ShopItemView : MonoBehaviour
         id = item.Id;
         price = item.Price;
         itemIcon.sprite = item.Item.Icon;
-        purchaseButton.interactable = !item.IsPurchased;
+
+        isPurchased = item.IsPurchased;
+        
         SetPrice(item);
         itemIcon.transform.localScale = new Vector3(item.ViewSize, item.ViewSize);
         titleText.text = id;
@@ -38,17 +42,16 @@ public class ShopItemView : MonoBehaviour
 
     private void SetPrice(ShopItemSO item)
     {
-        currencyIcon.enabled = !item.IsPurchased;
-
         if (!item.IsPurchased)
         {
             priceText.text = item.Price.ToString();
-            currencyIcon.sprite = item.CurrencyType.Icon;
         }
         else
         {
-            priceText.text = "Purchased";
+            priceText.text = "Sell " + item.SellingPrice.ToString();
         }
+
+        currencyIcon.sprite = item.CurrencyType.Icon;
     }
 
     public void Toggle(bool status)

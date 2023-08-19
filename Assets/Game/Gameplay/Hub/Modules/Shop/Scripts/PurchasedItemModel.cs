@@ -12,4 +12,9 @@ public class PurchasedItemModel
         this.itemId = itemId;
         this.isPurchased = isPurchased;
     }
+
+    public void ToggleIsPurchased(bool status)
+    {
+        isPurchased = status;
+    }
 }

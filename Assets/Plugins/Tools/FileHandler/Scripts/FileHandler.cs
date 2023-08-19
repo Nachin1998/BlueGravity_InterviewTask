@@ -41,7 +41,7 @@ public class FileHandler : MonoBehaviour
 
     public static void SaveFile<T>(string fileName, T data) where T : class
     {
-        string rawData = JsonConvert.SerializeObject(data);
+        string rawData = JsonConvert.SerializeObject(data, Formatting.Indented);
         SaveFile(fileName, rawData);
     }
 

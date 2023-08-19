@@ -16,3 +16,4 @@ MonoBehaviour:
   viewSize: 1.2
   currencyType: {fileID: 11400000, guid: ae44f9282ac42c541a4f686f5948c5aa, type: 2}
   price: 20
+  sellingPricePercentange: 0.7
