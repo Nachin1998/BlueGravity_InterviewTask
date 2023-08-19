@@ -63,7 +63,7 @@ public class ShopController : MonoBehaviour
             });
     }
 
-    private void OnDisable()
+    public void DeInit()
     {
         SavePurchaseHistory();
         ResetShopItems();

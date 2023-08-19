@@ -9,6 +9,10 @@ public class UICharacterView : CharacterView<Image>
 
     public override void CopyBody(CharacterView<Image> character)
     {
+        headAccessoriesRenderer.enabled = character.HeadAccessory != null;
+        headHairRenderer.enabled = character.HeadHair != null;
+        bodyRenderer.enabled = character.Body != null;
+
         headAccessoriesRenderer.sprite = character.HeadAccessory;
         headHairRenderer.sprite = character.HeadHair;
         bodyRenderer.sprite = character.Body;

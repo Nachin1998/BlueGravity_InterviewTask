@@ -6,7 +6,9 @@ public class ItemSO : ScriptableObject
     [Header("Main Configuration")]
     [SerializeField] private string id = string.Empty;
     [SerializeField] private Sprite icon = null;
+    [SerializeField] private bool isUnlocked = false;
 
     public string Id { get => id; }
     public Sprite Icon { get => icon; }
+    public bool IsUnlocked { get => isUnlocked; }
 }

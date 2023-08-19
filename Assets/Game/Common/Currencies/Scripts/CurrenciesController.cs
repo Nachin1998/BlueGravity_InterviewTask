@@ -26,7 +26,7 @@ namespace BlueGravity.Common.Currencies
             LoadCurrencies();
         }
 
-        private void OnDisable()
+        public void DeInit()
         {
             SaveCurrencies();
         }
