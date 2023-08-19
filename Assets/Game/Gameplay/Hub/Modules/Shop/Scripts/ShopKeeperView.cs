@@ -6,6 +6,7 @@ public class ShopKeeperView : MonoBehaviour, IInteractable
 {
     [SerializeField] private InteractionArea interactionArea = null;
 
+    private bool isInteractable = true;
     private Action OnInteracted = null;
 
     public void Init(Action onInteracted, Action onCustomerInRange, Action onCustomerLeave)
@@ -16,6 +17,7 @@ public class ShopKeeperView : MonoBehaviour, IInteractable
             {
                 if (obj.TryGetComponent(out IShopCustomer customer))
                 {
+                    isInteractable = true;
                     onCustomerInRange?.Invoke();
                 }
             },
@@ -23,6 +25,7 @@ public class ShopKeeperView : MonoBehaviour, IInteractable
             {
                 if (obj.TryGetComponent(out IShopCustomer customer))
                 {
+                    isInteractable = false;
                     onCustomerLeave?.Invoke();
                 }
             });
@@ -30,6 +33,14 @@ public class ShopKeeperView : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        OnInteracted?.Invoke();
+        if (isInteractable)
+        {
+            OnInteracted?.Invoke();
+        }
+    }
+
+    public void ToggleIsInteractable(bool status)
+    {
+        isInteractable = status;
     }
 }

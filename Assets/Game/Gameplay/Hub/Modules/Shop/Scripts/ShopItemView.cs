@@ -7,10 +7,11 @@ using TMPro;
 
 public class ShopItemView : MonoBehaviour
 {
+    [SerializeField] private Button purchaseButton = null;
     [SerializeField] private TMP_Text titleText = null;
     [SerializeField] private TMP_Text priceText = null;
-    [SerializeField] private Image icon = null;
-    [SerializeField] private Button purchaseButton = null;
+    [SerializeField] private Image itemIcon = null;
+    [SerializeField] private Image currencyIcon = null;
 
     private string id = string.Empty;
     private int price = 0;
@@ -23,14 +24,16 @@ public class ShopItemView : MonoBehaviour
         purchaseButton.onClick.AddListener(() => onItemPressed?.Invoke(this));
     }
 
-    public void Configure(string id, int price, Sprite iconSprite, bool isPurchased)
+    public void Configure(ShopItemSO item)
     {
-        this.id = id;
-        this.price = price;
-        titleText.text = id;
-        icon.sprite = iconSprite;
+        id = item.Id;
+        price = item.Price;
+        itemIcon.sprite = item.Item.Icon;
+        priceText.text = item.Price.ToString();
+        purchaseButton.interactable = !item.IsPurchased;
+        currencyIcon.sprite = item.CurrencyType.Icon;
 
-        purchaseButton.gameObject.SetActive(!isPurchased);
+        titleText.text = id;
     }
 
     public void Toggle(bool status)

@@ -24,17 +24,22 @@ public class ShopController : MonoBehaviour
 
     public void Init()
     {
-        view.Init(confirmationView.Configure, null);
+        view.Init(confirmationView.Configure, 
+            onPanelClosed: () =>
+            {
+                shopKeeperView.ToggleIsInteractable(true);
+            });
 
         shopKeeperView.Init(
             onInteracted: () =>
             {
+                purchasedItems = LoadPurchaseHistory();
                 Configure();
                 ToggleView(true);
             }, 
             onCustomerInRange: () =>
             {
-                ToggleView(true);
+                //ToggleView(true);
             },
             onCustomerLeave: () =>
             {
@@ -47,8 +52,6 @@ public class ShopController : MonoBehaviour
                 ShopItemSO item = GetShopItem(itemId);
                 PurchaseItem(item);
             });
-
-        purchasedItems = LoadPurchaseHistory();
     }
 
     private void OnDisable()
@@ -58,7 +61,7 @@ public class ShopController : MonoBehaviour
 
     private void SavePurchaseHistory()
     {
-        string data = JsonConvert.SerializeObject(items);
+        string data = JsonConvert.SerializeObject(purchasedItems);
         File.WriteAllText(Application.persistentDataPath + purchaseHistoryPath, data);
     }
 
@@ -71,6 +74,7 @@ public class ShopController : MonoBehaviour
 
         string data = File.ReadAllText(Application.persistentDataPath + purchaseHistoryPath);
         List<PurchasedItemModel> models = JsonConvert.DeserializeObject<List<PurchasedItemModel>>(data);
+        models ??= new List<PurchasedItemModel>();
         return models;
     }
 
@@ -89,7 +93,7 @@ public class ShopController : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].Item.Id == id)
+            if (items[i].Id == id)
             {
                 return items[i];
             }
@@ -106,7 +110,7 @@ public class ShopController : MonoBehaviour
 
         if (canPurchase)
         {
-            purchasedItems.Add(new PurchasedItemModel(item.Item.Id, true));
+            purchasedItems.Add(new PurchasedItemModel(item.Id, true));
         }
         else
         {

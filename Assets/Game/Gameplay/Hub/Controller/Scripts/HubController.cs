@@ -12,11 +12,13 @@ namespace BlueGravity.Game.Hub.Controller
         [SerializeField] private PlayerController playerController = null;
         [SerializeField] private CurrenciesController currenciesController = null;
         [SerializeField] private CameraController cameraController = null;
+        [SerializeField] private ShopController shopController = null;
 
         protected override void Awake()
         {
             currenciesController.Init();
             cameraController.SetTarget(playerController.transform);
+            shopController.Init();
         }
 
         protected override void OnDisable()

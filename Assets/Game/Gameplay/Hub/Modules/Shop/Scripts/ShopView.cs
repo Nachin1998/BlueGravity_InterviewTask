@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class ShopView : MonoBehaviour
 {
+    [SerializeField] private Transform holder = null;
     [SerializeField] private ShopItemView itemViewPrefab = null;
     [SerializeField] private Transform itemsHolder = null;
     [SerializeField] private Button closePanelButton = null;
@@ -29,7 +30,7 @@ public class ShopView : MonoBehaviour
 
     public void Toggle(bool status)
     {
-        gameObject.SetActive(status);
+        holder.gameObject.SetActive(status);
     }
 
     public void Configure(List<ShopItemSO> items)
@@ -37,7 +38,7 @@ public class ShopView : MonoBehaviour
         for (int i = 0; i < items.Count; i++)
         {
             ShopItemView view = shopItemsPool.Get();
-            view.Configure(items[i].Item.Id, items[i].Price, items[i].Item.Icon, items[i].IsPurchased);
+            view.Configure(items[i]);
             activeItems.Add(view);
         }
     }

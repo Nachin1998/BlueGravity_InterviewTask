@@ -12,7 +12,7 @@ public class ShopConfirmationView : MonoBehaviour
 
     public void Init(Action<string> onConfirm)
     {
-        confirmButton.onClick.AddListener(() => onConfirm?.Invoke(itemId));
+        confirmButton?.onClick.AddListener(() => onConfirm?.Invoke(itemId));
     }
 
     public void Toggle(bool status)

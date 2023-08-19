@@ -14,6 +14,7 @@ public class ShopItemSO : ScriptableObject
 
     private bool isPurchased = false;
 
+    public string Id { get => item.Id; }
     public ItemSO Item { get => item; }
     public CurrencySO CurrencyType { get => currencyType; }
     public int Price { get => price; }
