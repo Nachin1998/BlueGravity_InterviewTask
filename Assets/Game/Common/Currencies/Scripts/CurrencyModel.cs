@@ -9,7 +9,7 @@ namespace BlueGravity.Common.Currencies
         [SerializeField] private int value = 0;
 
         public string Id { get => id; }
-        public int Value { get => value; }
+        public int Value { get => value; set => this.value = value; }
 
         public CurrencyModel(string id, int value) 
         {

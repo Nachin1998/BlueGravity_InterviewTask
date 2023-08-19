@@ -7,6 +7,7 @@ public class ShopItemSO : ScriptableObject
 {
     [Header("Main Configuration")]
     [SerializeField] private ItemSO item = null;
+    [SerializeField] private float viewSize = 1; //patch mainly because all the art is different with different sizes
 
     [Header("Price Configuration")]
     [SerializeField] private CurrencySO currencyType = null;
@@ -19,6 +20,7 @@ public class ShopItemSO : ScriptableObject
     public CurrencySO CurrencyType { get => currencyType; }
     public int Price { get => price; }
     public bool IsPurchased { get => isPurchased; }
+    public float ViewSize { get => viewSize; }
 
     public void SetIsPurchased(bool status)
     {

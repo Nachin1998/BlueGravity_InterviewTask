@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbbafa0dbf867e94190ed5b6ecdabac8, type: 3}
-  m_Name: costume_default
+  m_Name: item_hat_villager
   m_EditorClassIdentifier: 
-  id: costume_default
-  icon: {fileID: 0}
+  id: item_hat_villager
+  icon: {fileID: -1279635400, guid: e6d994212eff3824ebb7a7bdb574a2e4, type: 3}

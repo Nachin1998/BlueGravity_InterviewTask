@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   purchaseButton: {fileID: 4288458654728939350}
+  priceHolder: {fileID: 5847265795934927646}
   titleText: {fileID: 264474057726310060}
   priceText: {fileID: 8237851260826678581}
   itemIcon: {fileID: 614768139382012091}
@@ -202,10 +203,10 @@ RectTransform:
   m_Father: {fileID: 286476581412813375}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50.5461, y: 50.5461}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1596363216432512607
 CanvasRenderer:

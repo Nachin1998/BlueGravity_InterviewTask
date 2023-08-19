@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2570881e579f574cba5a0bcb5220022, type: 3}
-  m_Name: shopitem_costume_default
+  m_Name: shopitem_costume_undies_1
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 6dd37693393a81d4390e25c626c80a97, type: 2}
+  item: {fileID: 11400000, guid: f53e8e463f6f3f2479b768b1c7fde3bc, type: 2}
   viewSize: 2
   currencyType: {fileID: 11400000, guid: ae44f9282ac42c541a4f686f5948c5aa, type: 2}
-  price: 10
+  price: 3

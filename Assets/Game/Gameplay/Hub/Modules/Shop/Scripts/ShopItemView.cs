@@ -8,6 +8,7 @@ using TMPro;
 public class ShopItemView : MonoBehaviour
 {
     [SerializeField] private Button purchaseButton = null;
+    [SerializeField] private Transform priceHolder = null;
     [SerializeField] private TMP_Text titleText = null;
     [SerializeField] private TMP_Text priceText = null;
     [SerializeField] private Image itemIcon = null;
@@ -29,11 +30,25 @@ public class ShopItemView : MonoBehaviour
         id = item.Id;
         price = item.Price;
         itemIcon.sprite = item.Item.Icon;
-        priceText.text = item.Price.ToString();
         purchaseButton.interactable = !item.IsPurchased;
-        currencyIcon.sprite = item.CurrencyType.Icon;
-
+        SetPrice(item);
+        itemIcon.transform.localScale = new Vector3(item.ViewSize, item.ViewSize);
         titleText.text = id;
+    }
+
+    private void SetPrice(ShopItemSO item)
+    {
+        currencyIcon.enabled = !item.IsPurchased;
+
+        if (!item.IsPurchased)
+        {
+            priceText.text = item.Price.ToString();
+            currencyIcon.sprite = item.CurrencyType.Icon;
+        }
+        else
+        {
+            priceText.text = "Purchased";
+        }
     }
 
     public void Toggle(bool status)

@@ -1,27 +1,35 @@
 using System;
-
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ShopConfirmationView : MonoBehaviour
 {
+    [SerializeField] private Transform holder = null;
+    [SerializeField] private TMP_Text itemIdText = null;
     [SerializeField] private Button confirmButton = null;
     [SerializeField] private Button cancelButton = null;
 
-    private string itemId = string.Empty;
+    private ShopItemView itemView = null;
 
-    public void Init(Action<string> onConfirm)
+    public void Init(Action<ShopItemView> onConfirm)
     {
-        confirmButton?.onClick.AddListener(() => onConfirm?.Invoke(itemId));
+        confirmButton.onClick.AddListener(() =>
+        {
+            onConfirm?.Invoke(itemView);
+        });
+        cancelButton.onClick.AddListener(() => Toggle(false));
     }
 
     public void Toggle(bool status)
     {
-
+        holder.gameObject.SetActive(status);
     }
 
     public void Configure(ShopItemView view)
     {
-        itemId = view.Id;
+        itemView = view;
+        itemIdText.text = view.Id;
+        Toggle(true);
     }
 }

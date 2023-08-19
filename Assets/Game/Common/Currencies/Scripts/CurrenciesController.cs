@@ -77,6 +77,13 @@ namespace BlueGravity.Common.Currencies
             return GetCurrencyValue(currency.Id);
         }
 
+        public int SubstractCurrency(CurrencySO currency, int valueToSubstract)
+        {
+            CurrencyModel model = GetCurrencyModel(currency.Id);
+            model.Value -= valueToSubstract;
+            return model.Value;
+        }
+
         public int GetCurrencyValue(string currencyId)
         {
             CurrencyModel model = GetCurrencyModel(currencyId);
