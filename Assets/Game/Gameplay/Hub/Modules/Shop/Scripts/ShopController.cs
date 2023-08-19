@@ -16,6 +16,10 @@ public class ShopController : MonoBehaviour
 
     [Header("Items Configuration")]
     [SerializeField] private List<ShopItemSO> items = null;
+    [SerializeField] private AudioChannel audioChannel = null;
+    [SerializeField] private AudioSO purchaseSFX = null;
+
+    [Header("Audio Configuration")]
 
     private List<PurchasedItemModel> purchasedItems = null;
 
@@ -138,6 +142,8 @@ public class ShopController : MonoBehaviour
     private void ProcessTransaction(ShopItemSO item, Action onSuccess, Action onFailure)
     {
         SHOP_TRANSACTION_TYPE type = item.IsPurchased ? SHOP_TRANSACTION_TYPE.SELLING : SHOP_TRANSACTION_TYPE.PURCHASING;
+
+        onSuccess += () => audioChannel.OnTriggerAudio?.Invoke(purchaseSFX);
 
         switch (type)
         {

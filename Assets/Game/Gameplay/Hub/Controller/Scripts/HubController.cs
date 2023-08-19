@@ -15,7 +15,7 @@ namespace BlueGravity.Game.Hub.Controller
         [SerializeField] private ShopController shopController = null;
         [SerializeField] private CustomizationController customizationController = null;
 
-        protected override void Awake()
+        protected override void Init()
         {
             currenciesController.Init();
             cameraController.SetTarget(playerController.transform);
