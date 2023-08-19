@@ -1,12 +1,9 @@
-using System.IO;
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
 
 using BlueGravity.Common.Currencies;
-
-using System;
-using static UnityEditor.Progress;
 
 public class ShopController : MonoBehaviour
 {
@@ -15,12 +12,15 @@ public class ShopController : MonoBehaviour
     [SerializeField] private ShopConfirmationView confirmationView = null;
     [SerializeField] private ShopKeeperView shopKeeperView = null;
 
-    [SerializeField] private CurrenciesController currenciesController = null;
+    [SerializeField] private GameCurrenciesController currenciesController = null;
 
     [Header("Items Configuration")]
     [SerializeField] private List<ShopItemSO> items = null;
 
     private List<PurchasedItemModel> purchasedItems = null;
+
+    private Action<ShopItemSO> OnItemPurchased = null;
+    private Action<ShopItemSO> OnItemSold = null;
 
     private const string purchaseHistoryFileName = "purchasehistory";
 
@@ -30,8 +30,11 @@ public class ShopController : MonoBehaviour
         SELLING
     }
 
-    public void Init()
+    public void Init(Action<ShopItemSO> onItemPurchased, Action<ShopItemSO> onItemSold)
     {
+        OnItemPurchased = onItemPurchased;
+        OnItemSold = onItemSold;
+
         ConfigureItems();
 
         view.Init(confirmationView.Configure,
@@ -159,6 +162,7 @@ public class ShopController : MonoBehaviour
             item.ToggleIsPurchased(true);
             confirmationView.Toggle(false);
             Debug.Log("Item Purchased successfully!");
+            OnItemPurchased?.Invoke(item);
             onSuccess?.Invoke();
         }
         else
@@ -181,6 +185,7 @@ public class ShopController : MonoBehaviour
 
             confirmationView.Toggle(false);
             Debug.Log("Item Sold successfully!");
+            OnItemSold?.Invoke(item);
             onSuccess?.Invoke();
         }
         else

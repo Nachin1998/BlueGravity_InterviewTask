@@ -7,6 +7,7 @@ public abstract class CharacterView<TRenderer> : MonoBehaviour where TRenderer :
     [SerializeField] protected TRenderer headHairRenderer = null;
     [SerializeField] protected TRenderer bodyRenderer = null;
 
+    public int Parts { get => 3; }
     public abstract Sprite HeadAccessory { get; protected set; }
     public abstract Sprite HeadHair { get; protected set; }
     public abstract Sprite Body { get; protected set; }

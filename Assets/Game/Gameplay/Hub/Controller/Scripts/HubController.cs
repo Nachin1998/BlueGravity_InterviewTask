@@ -10,7 +10,7 @@ namespace BlueGravity.Game.Hub.Controller
     {
         [Header("Hub Controller Configuration")]
         [SerializeField] private PlayerController playerController = null;
-        [SerializeField] private CurrenciesController currenciesController = null;
+        [SerializeField] private GameCurrenciesController currenciesController = null;
         [SerializeField] private CameraController cameraController = null;
         [SerializeField] private ShopController shopController = null;
         [SerializeField] private CustomizationController customizationController = null;
@@ -19,7 +19,7 @@ namespace BlueGravity.Game.Hub.Controller
         {
             currenciesController.Init();
             cameraController.SetTarget(playerController.transform);
-            shopController.Init();
+            shopController.Init(null, TryRemovePlayerItemView);
             customizationController.Init();
         }
 
@@ -31,6 +31,19 @@ namespace BlueGravity.Game.Hub.Controller
         {
             currenciesController.DeInit();
             shopController.DeInit();
+        }
+
+        private void TryRemovePlayerItemView(ShopItemSO item)
+        {
+            SpriteCharacterView view = playerController.GetComponent<SpriteCharacterView>();
+
+            for (int i = 0; i < view.Parts; i++)
+            {
+                if (view[i] == item.Item.Icon)
+                {
+                    view[i] = null;
+                }
+            }
         }
     }
 }

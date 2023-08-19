@@ -10,17 +10,17 @@ namespace BlueGravity.Common.Currencies
     public class CurrenciesController : MonoBehaviour
     {
         [Header("Main Configuration")]
-        [SerializeField] private List<CurrencySO> currencies = null;
+        [SerializeField] protected List<CurrencySO> currencies = null;
 
         [Header("Debug values")]
         [SerializeField] private bool debugMode = false;
         [SerializeField] private int currenciesInitialValue = 0;
 
-        private List<CurrencyModel> currenciesValues = null;
+        protected List<CurrencyModel> currenciesValues = null;
 
         private const string currenciesFileName = "currencies";
 
-        public void Init()
+        public virtual void Init()
         {
             currenciesValues = new List<CurrencyModel>();
             LoadCurrencies();
@@ -71,14 +71,14 @@ namespace BlueGravity.Common.Currencies
             return GetCurrencyValue(currency.Id);
         }
 
-        public int AddCurrency(CurrencySO currency, int valueToAdd)
+        public virtual int AddCurrency(CurrencySO currency, int valueToAdd)
         {
             CurrencyModel model = GetCurrencyModel(currency.Id);
             model.Value += valueToAdd;
             return model.Value;
         }
 
-        public int SubstractCurrency(CurrencySO currency, int valueToSubstract)
+        public virtual int SubstractCurrency(CurrencySO currency, int valueToSubstract)
         {
             CurrencyModel model = GetCurrencyModel(currency.Id);
             model.Value -= valueToSubstract;
