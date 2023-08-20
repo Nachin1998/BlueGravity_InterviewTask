@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using BlueGravity.Common.Items.Body;
+
 namespace BlueGravity.Common.Characters
 {
     public abstract class CharacterView<TRenderer> : MonoBehaviour where TRenderer : Component
@@ -11,9 +13,7 @@ namespace BlueGravity.Common.Characters
 
         [Header("Animators Configuration")]
         [SerializeField] protected Animator mainBodyAnimator = null;
-        [SerializeField] protected Animator headAccessoriesAnimator = null;
-        [SerializeField] protected Animator headHairAnimator = null;
-        [SerializeField] protected Animator costumeAnimator = null;
+        [SerializeField] protected Animator[] bodyPartAnimators = null;
 
         public int Parts { get => 3; }
         public abstract Sprite HeadAccessory { get; protected set; }
@@ -63,20 +63,19 @@ namespace BlueGravity.Common.Characters
 
         public void SetItem(BodyPartItemSO item)
         {
+            bodyPartAnimators[(int)item.Part].runtimeAnimatorController = item.AnimatorController;
+
             switch (item.Part)
             {
                 case BODY_PART.ACCESSORY:
-                    headAccessoriesAnimator.runtimeAnimatorController = item.AnimatorController;
                     HeadAccessory = item.Icon;
                     break;
 
                 case BODY_PART.HAIR:
-                    headHairAnimator.runtimeAnimatorController = item.AnimatorController;
                     HeadHair = item.Icon;
                     break;
 
                 case BODY_PART.COSTUME:
-                    costumeAnimator.runtimeAnimatorController = item.AnimatorController;
                     Body = item.Icon;
                     break;
 
@@ -98,9 +97,14 @@ namespace BlueGravity.Common.Characters
         public void SetAnimationAxis(string axis, float value)
         {
             mainBodyAnimator.SetFloat(axis, value);
-            headAccessoriesAnimator.SetFloat(axis, value);
-            headHairAnimator.SetFloat(axis, value);
-            costumeAnimator.SetFloat(axis, value);
+
+            for (int i = 0; i < bodyPartAnimators.Length; i++)
+            {
+                if (bodyPartAnimators[i].runtimeAnimatorController != null)
+                {
+                    bodyPartAnimators[i].SetFloat(axis, value);
+                }
+            }
         }
     }
 }

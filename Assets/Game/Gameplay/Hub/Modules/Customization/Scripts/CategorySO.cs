@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using BlueGravity.Common.Items;
+using BlueGravity.Common.Items.Body;
 
 namespace BlueGravity.Game.Hub.Modules.Customization
 {

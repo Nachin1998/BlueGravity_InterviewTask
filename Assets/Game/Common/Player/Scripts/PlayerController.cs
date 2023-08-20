@@ -25,7 +25,7 @@ namespace BlueGravity.Common.Player
 
         private void FixedUpdate()
         {
-            rb2d.MovePosition(rb2d.position + movement * movementSpeed * Time.fixedDeltaTime);
+            rb2d.MovePosition(rb2d.position + movementSpeed * Time.fixedDeltaTime * movement);
         }
     }
 }
