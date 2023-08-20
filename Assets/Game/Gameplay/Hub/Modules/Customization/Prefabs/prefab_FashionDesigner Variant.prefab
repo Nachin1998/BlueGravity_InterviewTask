@@ -334,6 +334,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7606987363133507856, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987363133507856, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -351,7 +355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382997, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_Name
-      value: prefab_FashionDesigner Variant
+      value: prefab_FashionDesigner
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_RootOrder
@@ -359,11 +363,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.53
+      value: -8.94
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.09
+      value: 5.89
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -438,8 +442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionArea: {fileID: 6080525742407318295}
   speechBubble: {fileID: 7243076840977262870}
-  audioChannel: {fileID: 0}
-  popupSFX: {fileID: 0}
+  audioChannel: {fileID: 11400000, guid: d067c6672ce51314a9f236ac6147561d, type: 2}
+  popupSFX: {fileID: 11400000, guid: 4639cf0b2b8bfb54a8cd94fc593b2b86, type: 2}
 --- !u!4 &3092175129069648734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}

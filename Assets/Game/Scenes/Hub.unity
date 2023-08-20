@@ -2221,10 +2221,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 394563047055971128, guid: aff07925bf6567f41a8375a32582c052, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 749624891752613161, guid: aff07925bf6567f41a8375a32582c052, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2273,30 +2269,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: prefab_ShopKeeper
       objectReference: {fileID: 0}
-    - target: {fileID: 749624892327662430, guid: aff07925bf6567f41a8375a32582c052, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 749624893052745902, guid: aff07925bf6567f41a8375a32582c052, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 749624893374806465, guid: aff07925bf6567f41a8375a32582c052, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5547186933857529528, guid: aff07925bf6567f41a8375a32582c052, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8686311569176155295, guid: aff07925bf6567f41a8375a32582c052, type: 3}
-      propertyPath: popupSFX
-      value: 
-      objectReference: {fileID: 11400000, guid: 4639cf0b2b8bfb54a8cd94fc593b2b86, type: 2}
-    - target: {fileID: 8686311569176155295, guid: aff07925bf6567f41a8375a32582c052, type: 3}
-      propertyPath: audioChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: d067c6672ce51314a9f236ac6147561d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff07925bf6567f41a8375a32582c052, type: 3}
 --- !u!114 &38889398 stripped
@@ -38515,37 +38487,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1156945955, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: movementSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661178169533573, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661178169533573, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -315848125
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661178518431210, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661178518431210, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -315848125
-      objectReference: {fileID: 0}
     - target: {fileID: 8949661178999625984, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
       propertyPath: m_Name
       value: prefab_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661178999625985, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661178999625985, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -315848125
       objectReference: {fileID: 0}
     - target: {fileID: 8949661178999625986, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
       propertyPath: m_RootOrder
@@ -38590,14 +38534,6 @@ PrefabInstance:
     - target: {fileID: 8949661178999625986, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661179566870389, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8949661179566870389, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -315848125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66721815b6789764ead5b4a68a5b735c, type: 3}
@@ -45479,14 +45415,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5777756640834814365, guid: a0101fbf82ac45343b474d4125d605cc, type: 3}
-      propertyPath: popupSFX
-      value: 
-      objectReference: {fileID: 11400000, guid: 4639cf0b2b8bfb54a8cd94fc593b2b86, type: 2}
-    - target: {fileID: 5777756640834814365, guid: a0101fbf82ac45343b474d4125d605cc, type: 3}
-      propertyPath: audioChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: d067c6672ce51314a9f236ac6147561d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0101fbf82ac45343b474d4125d605cc, type: 3}
 --- !u!1001 &8839124349610122123

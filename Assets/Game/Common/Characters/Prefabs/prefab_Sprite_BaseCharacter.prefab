@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 7606987364450382996}
   - component: {fileID: 5034167917956196031}
   - component: {fileID: 5658065222987225464}
+  - component: {fileID: 7074363720394988041}
   m_Layer: 0
   m_Name: prefab_Sprite_BaseCharacter
   m_TagString: Untagged
@@ -298,6 +299,17 @@ MonoBehaviour:
   headAccessoriesRenderer: {fileID: 7606987363883059327}
   headHairRenderer: {fileID: 7606987364950123232}
   bodyRenderer: {fileID: 7606987363133507856}
+--- !u!210 &7074363720394988041
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606987364450382997}
+  m_Enabled: 1
+  m_SortingLayerID: -315848125
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &7606987364950123246
 GameObject:
   m_ObjectHideFlags: 0
