@@ -139,7 +139,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -315848125
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3016374131843876449
 MonoBehaviour:
@@ -306,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -315848125
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: d6ee8f7c2389cd040972fd561db64d32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -438,6 +438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionArea: {fileID: 6080525742407318295}
   speechBubble: {fileID: 7243076840977262870}
+  audioChannel: {fileID: 0}
+  popupSFX: {fileID: 0}
 --- !u!4 &3092175129069648734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}

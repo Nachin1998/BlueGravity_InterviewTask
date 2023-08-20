@@ -16,10 +16,10 @@ public class ShopController : MonoBehaviour
 
     [Header("Items Configuration")]
     [SerializeField] private List<ShopItemSO> items = null;
-    [SerializeField] private AudioChannel audioChannel = null;
-    [SerializeField] private AudioSO purchaseSFX = null;
 
     [Header("Audio Configuration")]
+    [SerializeField] private AudioChannel audioChannel = null;
+    [SerializeField] private AudioSO purchaseSFX = null;
 
     private List<PurchasedItemModel> purchasedItems = null;
 
@@ -143,7 +143,7 @@ public class ShopController : MonoBehaviour
     {
         SHOP_TRANSACTION_TYPE type = item.IsPurchased ? SHOP_TRANSACTION_TYPE.SELLING : SHOP_TRANSACTION_TYPE.PURCHASING;
 
-        onSuccess += () => audioChannel.OnTriggerAudio?.Invoke(purchaseSFX);
+        onSuccess += () => audioChannel.OnTriggerSFX?.Invoke(purchaseSFX);
 
         switch (type)
         {
@@ -186,8 +186,8 @@ public class ShopController : MonoBehaviour
         {
             currenciesController.AddCurrency(item.CurrencyType, item.SellingPrice);
             item.ToggleIsPurchased(false);
-            GetPurchasedItem(item.Id).ToggleIsPurchased(false);
-            purchasedItems.Add(new PurchasedItemModel(item.Id, true));
+            PurchasedItemModel purchasedItemModel = GetPurchasedItem(item.Id);
+            purchasedItemModel.ToggleIsPurchased(false);
 
             confirmationView.Toggle(false);
             Debug.Log("Item Sold successfully!");

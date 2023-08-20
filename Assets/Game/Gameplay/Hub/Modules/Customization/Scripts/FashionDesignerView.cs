@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class FashionDesignerView : MonoBehaviour, IInteractable
 {
+    [Header("Main Configuration")]
     [SerializeField] private InteractionArea interactionArea = null;
     [SerializeField] private GameObject speechBubble = null;
+
+    [Header("Audio Configuration")]
+    [SerializeField] private AudioChannel audioChannel = null;
+    [SerializeField] private AudioSO popupSFX = null;
 
     private bool isInteractable = true;
     private Action OnInteracted = null;
@@ -33,6 +38,11 @@ public class FashionDesignerView : MonoBehaviour, IInteractable
 
     private void ProcessInteraction(bool isInRange)
     {
+        if (isInRange)
+        {
+            audioChannel.OnTriggerSFX?.Invoke(popupSFX);
+        }
+
         speechBubble.SetActive(isInRange);
         isInteractable = isInRange;
     }

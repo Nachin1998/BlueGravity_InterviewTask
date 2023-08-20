@@ -3,16 +3,27 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     [SerializeField] private AudioChannel channel = null;
-    [SerializeField] private AudioSource source = null;
+    [SerializeField] private AudioSource musicSource = null;
+    [SerializeField] private AudioSource sfxSource = null;
 
     public void Init()
     {
-        channel.OnTriggerAudio = TriggerAudio;
+        channel.OnTriggerMusic = TriggerMusic;
+        channel.OnTriggerSFX = TriggerSFX;
     }
 
-    private void TriggerAudio(AudioSO so)
+    private void TriggerMusic(AudioSO so)
     {
-        source.volume = so.Volume;
-        source.PlayOneShot(so.Clip);
+        musicSource.volume = so.Volume;
+        musicSource.loop = so.Loop;
+        musicSource.clip = so.Clip;
+        musicSource.Play();
+    }
+
+    private void TriggerSFX(AudioSO so)
+    {
+        sfxSource.volume = so.Volume;
+        sfxSource.loop = so.Loop;
+        sfxSource.PlayOneShot(so.Clip);
     }
 }

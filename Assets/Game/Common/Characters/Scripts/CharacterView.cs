@@ -42,8 +42,6 @@ public abstract class CharacterView<TRenderer> : MonoBehaviour where TRenderer :
                 case 2:
                     Body = value;
                     break;
-                default:
-                    break;
             }
         }
     }
