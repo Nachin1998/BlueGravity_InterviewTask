@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace BlueGravity.Common.Characters
@@ -8,6 +9,7 @@ namespace BlueGravity.Common.Characters
         [SerializeField] protected TRenderer headAccessoriesRenderer = null;
         [SerializeField] protected TRenderer headHairRenderer = null;
         [SerializeField] protected TRenderer bodyRenderer = null;
+        [SerializeField] protected Animator animator = null;
 
         public int Parts { get => 3; }
         public abstract Sprite HeadAccessory { get; protected set; }
@@ -53,6 +55,16 @@ namespace BlueGravity.Common.Characters
             HeadAccessory = character.HeadAccessory;
             HeadHair = character.HeadHair;
             Body = character.Body;
+        }
+
+        public void SetAnimationSpeed(float speed)
+        {
+            SetAnimationAxis("speed", speed);
+        }
+
+        public void SetAnimationAxis(string axis, float value)
+        {
+            animator.SetFloat(axis, value);
         }
     }
 }
