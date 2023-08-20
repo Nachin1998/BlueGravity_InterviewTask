@@ -1,8 +1,12 @@
 using UnityEngine;
 
 using BlueGravity.Common.Controller;
-using BlueGravity.Common.Currencies;
 using BlueGravity.Common.Player;
+using BlueGravity.Common.Characters;
+
+using BlueGravity.Game.Hub.Modules.Shop;
+using BlueGravity.Game.Hub.Modules.Currencies;
+using BlueGravity.Game.Hub.Modules.Customization;
 
 namespace BlueGravity.Game.Hub.Controller
 {

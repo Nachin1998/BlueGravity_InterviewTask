@@ -1,53 +1,59 @@
-using BlueGravity.Common.Currencies;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class GameCurrenciesView : MonoBehaviour
+using BlueGravity.Common.Currencies;
+
+namespace BlueGravity.Game.Hub.Modules.Currencies
 {
-    [SerializeField] private Transform holder = null;
-    [SerializeField] private Transform itemsHolder = null;
-    [SerializeField] private GameCurrencyItemView currencyItemPrefab = null;
-
-    private ObjectPool<GameCurrencyItemView> currenciesPool = null;
-    private List<GameCurrencyItemView> activeItems = null;
-
-    public void Init(List<CurrencySO> currencies, List<CurrencyModel> models)
+    public class GameCurrenciesView : MonoBehaviour
     {
-        currenciesPool = new ObjectPool<GameCurrencyItemView>(GenerateItem, GetItem, ReleaseItem);
-        activeItems = new List<GameCurrencyItemView>();
+        [Header("Main Configuration")]
+        [SerializeField] private Transform holder = null;
+        [SerializeField] private Transform itemsHolder = null;
+        [SerializeField] private GameCurrencyItemView currencyItemPrefab = null;
 
-        for (int i = 0; i < currencies.Count; i++)
-        {
-            GameCurrencyItemView item = currenciesPool.Get();
-            item.Configure(currencies[i], models[i]);
-            activeItems.Add(item);
-        }
-    }
+        private ObjectPool<GameCurrencyItemView> currenciesPool = null;
+        private List<GameCurrencyItemView> activeItems = null;
 
-    public void UpdateCurrencyView(string id, int newValue)
-    {
-        for (int i = 0; i < activeItems.Count; i++)
+        public void Init(List<CurrencySO> currencies, List<CurrencyModel> models)
         {
-            if (activeItems[i].Id == id)
+            currenciesPool = new ObjectPool<GameCurrencyItemView>(GenerateItem, GetItem, ReleaseItem);
+            activeItems = new List<GameCurrencyItemView>();
+
+            for (int i = 0; i < currencies.Count; i++)
             {
-                activeItems[i].SetValue(newValue);
+                GameCurrencyItemView item = currenciesPool.Get();
+                item.Configure(currencies[i], models[i]);
+                activeItems.Add(item);
             }
         }
-    }
 
-    private GameCurrencyItemView GenerateItem()
-    {
-        return Instantiate(currencyItemPrefab, itemsHolder);
-    }
+        public void UpdateCurrencyView(string id, int newValue)
+        {
+            for (int i = 0; i < activeItems.Count; i++)
+            {
+                if (activeItems[i].Id == id)
+                {
+                    activeItems[i].SetValue(newValue);
+                }
+            }
+        }
 
-    private void GetItem(GameCurrencyItemView item)
-    {
-        item.Toggle(true);
-    }
+        private GameCurrencyItemView GenerateItem()
+        {
+            return Instantiate(currencyItemPrefab, itemsHolder);
+        }
 
-    private void ReleaseItem(GameCurrencyItemView item)
-    {
-        item.Toggle(false);
+        private void GetItem(GameCurrencyItemView item)
+        {
+            item.Toggle(true);
+        }
+
+        private void ReleaseItem(GameCurrencyItemView item)
+        {
+            item.Toggle(false);
+        }
     }
 }

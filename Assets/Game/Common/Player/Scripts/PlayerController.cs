@@ -4,6 +4,7 @@ namespace BlueGravity.Common.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        [Header("Main Configuration")]
         [SerializeField] private float movementSpeed = 1.0f;
         [SerializeField] private Rigidbody2D rb2d = null;
 

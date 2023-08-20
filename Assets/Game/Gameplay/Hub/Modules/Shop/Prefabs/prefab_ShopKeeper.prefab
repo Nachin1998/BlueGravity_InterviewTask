@@ -78,7 +78,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -315848125
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 6
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7476793413784147426
 MonoBehaviour:
@@ -245,7 +245,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -315848125
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: d6ee8f7c2389cd040972fd561db64d32, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -334,6 +334,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7606987363133507856, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987363133507856, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -344,6 +348,10 @@ PrefabInstance:
     - target: {fileID: 7606987363883059327, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987363883059327, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7606987363883059327, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -359,11 +367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.27
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 9.27
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -401,6 +409,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7606987364950123232, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
 --- !u!4 &749624891752613161 stripped
@@ -427,3 +439,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionArea: {fileID: 1908657929446271124}
   speechBubble: {fileID: 3069805362927385237}
+  audioChannel: {fileID: 11400000, guid: d067c6672ce51314a9f236ac6147561d, type: 2}
+  popupSFX: {fileID: 11400000, guid: 4639cf0b2b8bfb54a8cd94fc593b2b86, type: 2}

@@ -1,31 +1,38 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICharacterView : CharacterView<Image>
+namespace BlueGravity.Common.Characters
 {
-    public override Sprite HeadAccessory 
-    { 
-        get => headAccessoriesRenderer.sprite; 
-        protected set
+    public class UICharacterView : CharacterView<Image>
+    {
+        public override Sprite HeadAccessory
         {
-            headAccessoriesRenderer.enabled = value != null;
-            headAccessoriesRenderer.sprite = value;
+            get => headAccessoriesRenderer.sprite;
+            protected set
+            {
+                headAccessoriesRenderer.enabled = value != null;
+                headAccessoriesRenderer.sprite = value;
+            }
         }
-    }
 
-    public override Sprite HeadHair { get => headHairRenderer.sprite;
-        protected set
+        public override Sprite HeadHair
         {
-            headHairRenderer.enabled = value != null;
-            headHairRenderer.sprite = value;
+            get => headHairRenderer.sprite;
+            protected set
+            {
+                headHairRenderer.enabled = value != null;
+                headHairRenderer.sprite = value;
+            }
         }
-    }
 
-    public override Sprite Body { get => bodyRenderer.sprite;
-        protected set
+        public override Sprite Body
         {
-            bodyRenderer.enabled = value != null;
-            bodyRenderer.sprite = value;
+            get => bodyRenderer.sprite;
+            protected set
+            {
+                bodyRenderer.enabled = value != null;
+                bodyRenderer.sprite = value;
+            }
         }
     }
 }

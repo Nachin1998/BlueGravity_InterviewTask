@@ -1,32 +1,38 @@
 using UnityEngine;
 using UnityEngine.UI;
+
 using BlueGravity.Common.Currencies;
+
 using TMPro;
 
-public class GameCurrencyItemView : MonoBehaviour
+namespace BlueGravity.Game.Hub.Modules.Currencies
 {
-    [SerializeField] private Transform holder = null;
-    [SerializeField] private Image icon = null;
-    [SerializeField] private TMP_Text amountText = null;
-
-    private string id = string.Empty;
-
-    public string Id { get => id; }
-
-    public void Configure(CurrencySO currency, CurrencyModel model)
+    public class GameCurrencyItemView : MonoBehaviour
     {
-        id = currency.Id;
-        SetValue(model.Value);
-        icon.sprite = currency.Icon;
-    }
+        [Header("Main Configuration")]
+        [SerializeField] private Transform holder = null;
+        [SerializeField] private Image icon = null;
+        [SerializeField] private TMP_Text amountText = null;
 
-    public void SetValue(int value)
-    {
-        amountText.text = value.ToString();
-    }
+        private string id = string.Empty;
 
-    public void Toggle(bool status)
-    {
-        holder.gameObject.SetActive(status);
+        public string Id { get => id; }
+
+        public void Configure(CurrencySO currency, CurrencyModel model)
+        {
+            id = currency.Id;
+            SetValue(model.Value);
+            icon.sprite = currency.Icon;
+        }
+
+        public void SetValue(int value)
+        {
+            amountText.text = value.ToString();
+        }
+
+        public void Toggle(bool status)
+        {
+            holder.gameObject.SetActive(status);
+        }
     }
 }

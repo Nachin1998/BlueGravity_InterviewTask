@@ -1,20 +1,23 @@
-[System.Serializable]
-public class PurchasedItemModel
+namespace BlueGravity.Game.Hub.Modules.Shop
 {
-    private string itemId = string.Empty;
-    private bool isPurchased = false;
-
-    public string ItemId { get => itemId; }
-    public bool IsPurchased { get => isPurchased; }
-
-    public PurchasedItemModel(string itemId, bool isPurchased) 
+    [System.Serializable]
+    public class PurchasedItemModel
     {
-        this.itemId = itemId;
-        this.isPurchased = isPurchased;
-    }
+        private string itemId = string.Empty;
+        private bool isPurchased = false;
 
-    public void ToggleIsPurchased(bool status)
-    {
-        isPurchased = status;
+        public string ItemId { get => itemId; }
+        public bool IsPurchased { get => isPurchased; }
+
+        public PurchasedItemModel(string itemId, bool isPurchased)
+        {
+            this.itemId = itemId;
+            this.isPurchased = isPurchased;
+        }
+
+        public void ToggleIsPurchased(bool status)
+        {
+            isPurchased = status;
+        }
     }
 }

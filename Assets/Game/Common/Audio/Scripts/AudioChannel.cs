@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "channel_audio_", menuName = "ScriptableObjects/Common/Audio/Channel")]
-public class AudioChannel : ScriptableObject
+namespace BlueGravity.Common.Audio
 {
-    public Action<AudioSO> OnTriggerSFX = null;
-    public Action<AudioSO> OnTriggerMusic = null;
+    [CreateAssetMenu(fileName = "channel_audio_", menuName = "ScriptableObjects/Common/Audio/Channel")]
+    public class AudioChannel : ScriptableObject
+    {
+        public Action<AudioSO> OnTriggerSFX = null;
+        public Action<AudioSO> OnTriggerMusic = null;
+    }
 }

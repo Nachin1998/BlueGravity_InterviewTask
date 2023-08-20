@@ -1,55 +1,58 @@
 using UnityEngine;
 
-public abstract class CharacterView<TRenderer> : MonoBehaviour where TRenderer : Component
+namespace BlueGravity.Common.Characters
 {
-    [Header("Main Configuration")]
-    [SerializeField] protected TRenderer headAccessoriesRenderer = null;
-    [SerializeField] protected TRenderer headHairRenderer = null;
-    [SerializeField] protected TRenderer bodyRenderer = null;
-
-    public int Parts { get => 3; }
-    public abstract Sprite HeadAccessory { get; protected set; }
-    public abstract Sprite HeadHair { get; protected set; }
-    public abstract Sprite Body { get; protected set; }
-
-    public Sprite this[int index]
+    public abstract class CharacterView<TRenderer> : MonoBehaviour where TRenderer : Component
     {
-        get
+        [Header("Main Configuration")]
+        [SerializeField] protected TRenderer headAccessoriesRenderer = null;
+        [SerializeField] protected TRenderer headHairRenderer = null;
+        [SerializeField] protected TRenderer bodyRenderer = null;
+
+        public int Parts { get => 3; }
+        public abstract Sprite HeadAccessory { get; protected set; }
+        public abstract Sprite HeadHair { get; protected set; }
+        public abstract Sprite Body { get; protected set; }
+
+        public Sprite this[int index]
         {
-            switch (index) 
+            get
             {
-                case 0:
-                    return HeadAccessory;
-                case 1:
-                    return HeadHair;
-                case 2:
-                    return Body;
-                default:
-                    return null;
+                switch (index)
+                {
+                    case 0:
+                        return HeadAccessory;
+                    case 1:
+                        return HeadHair;
+                    case 2:
+                        return Body;
+                    default:
+                        return null;
+                }
+            }
+
+            set
+            {
+                switch (index)
+                {
+                    case 0:
+                        HeadAccessory = value;
+                        break;
+                    case 1:
+                        HeadHair = value;
+                        break;
+                    case 2:
+                        Body = value;
+                        break;
+                }
             }
         }
 
-        set
+        public void CopyBody<T>(CharacterView<T> character) where T : Component
         {
-            switch (index)
-            {
-                case 0:
-                    HeadAccessory = value;
-                    break;
-                case 1:
-                    HeadHair = value;
-                    break;
-                case 2:
-                    Body = value;
-                    break;
-            }
+            HeadAccessory = character.HeadAccessory;
+            HeadHair = character.HeadHair;
+            Body = character.Body;
         }
-    }
-
-    public void CopyBody<T>(CharacterView<T> character) where T : Component
-    {
-        HeadAccessory = character.HeadAccessory;
-        HeadHair = character.HeadHair;
-        Body = character.Body;
     }
 }

@@ -1,9 +1,10 @@
 using BlueGravity.Common.Player;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using BlueGravity.Game.Hub.Modules.Shop;
 
-public class GamePlayerController : PlayerController, IShopCustomer
+namespace BlueGravity.Game.Hub.Modules.Player
 {
+    public class GamePlayerController : PlayerController, IShopCustomer
+    {
 
+    }
 }

@@ -5,71 +5,75 @@ using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
 
-public class ShopView : MonoBehaviour
+namespace BlueGravity.Game.Hub.Modules.Shop
 {
-    [SerializeField] private Transform holder = null;
-    [SerializeField] private ShopItemView itemViewPrefab = null;
-    [SerializeField] private Transform itemsHolder = null;
-    [SerializeField] private Button closePanelButton = null;
-
-    private ObjectPool<ShopItemView> shopItemsPool = null;
-    private List<ShopItemView> activeItems = null;
-
-    private Action<ShopItemView> OnItemPressed = null;
-    private Action OnPanelClosed = null;
-
-    public void Init(Action<ShopItemView> onItemPressed, Action onPanelClosed)
+    public class ShopView : MonoBehaviour
     {
-        shopItemsPool = new ObjectPool<ShopItemView>(GenerateItem, GetItem, ReleaseItem);
-        activeItems = new List<ShopItemView>();
+        [Header("Main Configuration")]
+        [SerializeField] private Transform holder = null;
+        [SerializeField] private ShopItemView itemViewPrefab = null;
+        [SerializeField] private Transform itemsHolder = null;
+        [SerializeField] private Button closePanelButton = null;
 
-        OnItemPressed = onItemPressed;
-        OnPanelClosed = onPanelClosed;
-        closePanelButton.onClick.AddListener(ClosePanel);
-    }
+        private ObjectPool<ShopItemView> shopItemsPool = null;
+        private List<ShopItemView> activeItems = null;
 
-    public void Toggle(bool status)
-    {
-        holder.gameObject.SetActive(status);
-    }
+        private Action<ShopItemView> OnItemPressed = null;
+        private Action OnPanelClosed = null;
 
-    public void Configure(List<ShopItemSO> items)
-    {
-        for (int i = 0; i < items.Count; i++)
+        public void Init(Action<ShopItemView> onItemPressed, Action onPanelClosed)
         {
-            ShopItemView view = shopItemsPool.Get();
-            view.Configure(items[i]);
-            activeItems.Add(view);
-        }
-    }
+            shopItemsPool = new ObjectPool<ShopItemView>(GenerateItem, GetItem, ReleaseItem);
+            activeItems = new List<ShopItemView>();
 
-    public void ClosePanel()
-    {
-        for (int i = 0; i < activeItems.Count; i++)
-        {
-            shopItemsPool.Release(activeItems[i]);
+            OnItemPressed = onItemPressed;
+            OnPanelClosed = onPanelClosed;
+            closePanelButton.onClick.AddListener(ClosePanel);
         }
 
-        shopItemsPool.Clear();
+        public void Toggle(bool status)
+        {
+            holder.gameObject.SetActive(status);
+        }
 
-        Toggle(false);
-        OnPanelClosed?.Invoke();
-    }
+        public void Configure(List<ShopItemSO> items)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                ShopItemView view = shopItemsPool.Get();
+                view.Configure(items[i]);
+                activeItems.Add(view);
+            }
+        }
 
-    private ShopItemView GenerateItem()
-    {
-        ShopItemView item = Instantiate(itemViewPrefab, itemsHolder);
-        item.Init(OnItemPressed);
-        return item;
-    }
+        public void ClosePanel()
+        {
+            for (int i = 0; i < activeItems.Count; i++)
+            {
+                shopItemsPool.Release(activeItems[i]);
+            }
 
-    private void GetItem(ShopItemView item)
-    {
-        item.Toggle(true);
-    }
+            shopItemsPool.Clear();
 
-    private void ReleaseItem(ShopItemView item)
-    {
-        item.Toggle(false);
+            Toggle(false);
+            OnPanelClosed?.Invoke();
+        }
+
+        private ShopItemView GenerateItem()
+        {
+            ShopItemView item = Instantiate(itemViewPrefab, itemsHolder);
+            item.Init(OnItemPressed);
+            return item;
+        }
+
+        private void GetItem(ShopItemView item)
+        {
+            item.Toggle(true);
+        }
+
+        private void ReleaseItem(ShopItemView item)
+        {
+            item.Toggle(false);
+        }
     }
 }

@@ -1,29 +1,33 @@
 using UnityEngine;
 
-public class AudioController : MonoBehaviour
+namespace BlueGravity.Common.Audio
 {
-    [SerializeField] private AudioChannel channel = null;
-    [SerializeField] private AudioSource musicSource = null;
-    [SerializeField] private AudioSource sfxSource = null;
-
-    public void Init()
+    public class AudioController : MonoBehaviour
     {
-        channel.OnTriggerMusic = TriggerMusic;
-        channel.OnTriggerSFX = TriggerSFX;
-    }
+        [Header("Main Configuration")]
+        [SerializeField] private AudioChannel channel = null;
+        [SerializeField] private AudioSource musicSource = null;
+        [SerializeField] private AudioSource sfxSource = null;
 
-    private void TriggerMusic(AudioSO so)
-    {
-        musicSource.volume = so.Volume;
-        musicSource.loop = so.Loop;
-        musicSource.clip = so.Clip;
-        musicSource.Play();
-    }
+        public void Init()
+        {
+            channel.OnTriggerMusic = TriggerMusic;
+            channel.OnTriggerSFX = TriggerSFX;
+        }
 
-    private void TriggerSFX(AudioSO so)
-    {
-        sfxSource.volume = so.Volume;
-        sfxSource.loop = so.Loop;
-        sfxSource.PlayOneShot(so.Clip);
+        private void TriggerMusic(AudioSO so)
+        {
+            musicSource.volume = so.Volume;
+            musicSource.loop = so.Loop;
+            musicSource.clip = so.Clip;
+            musicSource.Play();
+        }
+
+        private void TriggerSFX(AudioSO so)
+        {
+            sfxSource.volume = so.Volume;
+            sfxSource.loop = so.Loop;
+            sfxSource.PlayOneShot(so.Clip);
+        }
     }
 }

@@ -1,35 +1,38 @@
 using System;
-using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopConfirmationView : MonoBehaviour
+using TMPro;
+
+namespace BlueGravity.Game.Hub.Modules.Shop
 {
-    [SerializeField] private Transform holder = null;
-    [SerializeField] private TMP_Text itemIdText = null;
-    [SerializeField] private Button confirmButton = null;
-    [SerializeField] private Button cancelButton = null;
-
-    private ShopItemView itemView = null;
-
-    public void Init(Action<ShopItemView> onConfirm)
+    public class ShopConfirmationView : MonoBehaviour
     {
-        confirmButton.onClick.AddListener(() =>
+        [Header("Main Configuration")]
+        [SerializeField] private Transform holder = null;
+        [SerializeField] private TMP_Text itemIdText = null;
+        [SerializeField] private Button confirmButton = null;
+        [SerializeField] private Button cancelButton = null;
+
+        private ShopItemView itemView = null;
+
+        public void Init(Action<ShopItemView> onConfirm)
         {
-            onConfirm?.Invoke(itemView);
-        });
-        cancelButton.onClick.AddListener(() => Toggle(false));
-    }
+            confirmButton.onClick.AddListener(() => onConfirm?.Invoke(itemView));
+            cancelButton.onClick.AddListener(() => Toggle(false));
+        }
 
-    public void Toggle(bool status)
-    {
-        holder.gameObject.SetActive(status);
-    }
+        public void Toggle(bool status)
+        {
+            holder.gameObject.SetActive(status);
+        }
 
-    public void Configure(ShopItemView view)
-    {
-        itemView = view;
-        itemIdText.text = view.Id;
-        Toggle(true);
+        public void Configure(ShopItemView view)
+        {
+            itemView = view;
+            itemIdText.text = view.Id;
+            Toggle(true);
+        }
     }
 }

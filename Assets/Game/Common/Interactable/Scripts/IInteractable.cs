@@ -1,4 +1,7 @@
-public interface IInteractable
+namespace BlueGravity.Common.Interaction
 {
-    public void Interact();
+    public interface IInteractable
+    {
+        public void Interact();
+    }
 }

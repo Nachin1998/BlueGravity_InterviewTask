@@ -1,3 +1,7 @@
-public interface IShopCustomer
+namespace BlueGravity.Game.Hub.Modules.Shop
 {
+    public interface IShopCustomer
+    {
+
+    }
 }

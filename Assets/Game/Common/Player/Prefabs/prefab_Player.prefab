@@ -69,6 +69,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7606987363133507856, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987363133507856, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987363883059327, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987363883059327, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382997, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_Name
       value: prefab_Player
@@ -83,11 +99,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4
+      value: -3.73
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.44
+      value: 1.14
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -119,6 +135,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382999, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987364950123232, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7606987364950123232, guid: 0aba19b3123f6204189b3730da06356b, type: 3}
+      propertyPath: m_SpriteSortPoint
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -161,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e11220f6c06b049992e9df822a0e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 5
   rb2d: {fileID: 1156945956}
 --- !u!4 &8949661178999625986 stripped
 Transform:

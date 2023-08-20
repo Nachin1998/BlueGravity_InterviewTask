@@ -4,6 +4,7 @@ namespace BlueGravity.Common.Controller
 {
     public class CameraController : MonoBehaviour
     {
+        [Header("Main Configuration")]
         [SerializeField] private Camera mainCamera = null;
         [SerializeField] private Vector3 offsetFromtarget = Vector3.zero;
 

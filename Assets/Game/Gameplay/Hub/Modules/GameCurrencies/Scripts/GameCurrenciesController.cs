@@ -1,27 +1,32 @@
-using BlueGravity.Common.Currencies;
 using UnityEngine;
 
-public class GameCurrenciesController : CurrenciesController
+using BlueGravity.Common.Currencies;
+
+namespace BlueGravity.Game.Hub.Modules.Currencies
 {
-    [SerializeField] private GameCurrenciesView view = null;
-
-    public override void Init()
+    public class GameCurrenciesController : CurrenciesController
     {
-        base.Init();
-        view.Init(currencies, currenciesValues);
-    }
+        [Header("Main Configuration")]
+        [SerializeField] private GameCurrenciesView view = null;
 
-    public override int AddCurrency(CurrencySO currency, int valueToAdd)
-    {
-        int newValue = base.AddCurrency(currency, valueToAdd);
-        view.UpdateCurrencyView(currency.Id, newValue);
-        return newValue;
-    }
+        public override void Init()
+        {
+            base.Init();
+            view.Init(currencies, currenciesValues);
+        }
 
-    public override int SubstractCurrency(CurrencySO currency, int valueToSubstract)
-    {
-        int newValue = base.SubstractCurrency(currency, valueToSubstract);
-        view.UpdateCurrencyView(currency.Id, newValue);
-        return newValue;
+        public override int AddCurrency(CurrencySO currency, int valueToAdd)
+        {
+            int newValue = base.AddCurrency(currency, valueToAdd);
+            view.UpdateCurrencyView(currency.Id, newValue);
+            return newValue;
+        }
+
+        public override int SubstractCurrency(CurrencySO currency, int valueToSubstract)
+        {
+            int newValue = base.SubstractCurrency(currency, valueToSubstract);
+            view.UpdateCurrencyView(currency.Id, newValue);
+            return newValue;
+        }
     }
 }
