@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 4ec807fd6d6a9d049bf18cb1d6199f64, type: 2}
   viewSize: 1.2
-  currencyType: {fileID: 11400000, guid: ae44f9282ac42c541a4f686f5948c5aa, type: 2}
+  currencyType: {fileID: 11400000, guid: 34ed10deeac596c43af1e0592c3ae207, type: 2}
   price: 50
   sellingPricePercentange: 0.7
