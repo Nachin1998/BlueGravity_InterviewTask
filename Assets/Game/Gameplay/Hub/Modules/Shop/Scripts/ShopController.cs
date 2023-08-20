@@ -27,7 +27,7 @@ namespace BlueGravity.Game.Hub.Modules.Shop
         [SerializeField] private AudioChannel audioChannel = null;
         [SerializeField] private AudioSO purchaseSFX = null;
 
-        private List<PurchasedItemModel> purchasedItems = null;
+        private List<string> purchasedItems = null;
 
         private Action<ShopItemSO> OnItemPurchased = null;
         private Action<ShopItemSO> OnItemSold = null;
@@ -93,11 +93,11 @@ namespace BlueGravity.Game.Hub.Modules.Shop
 
             for (int i = 0; i < purchasedItems.Count; i++)
             {
-                ShopItemSO item = GetShopItem(purchasedItems[i].ItemId);
+                ShopItemSO item = GetShopItem(purchasedItems[i]);
 
                 if (item != null)
                 {
-                    item.ToggleIsPurchased(purchasedItems[i].IsPurchased);
+                    item.ToggleIsPurchased(purchasedItems.Contains(item.Id));
                 }
             }
         }
@@ -115,15 +115,15 @@ namespace BlueGravity.Game.Hub.Modules.Shop
             }
         }
 
-        private List<PurchasedItemModel> LoadPurchaseHistory()
+        private List<string> LoadPurchaseHistory()
         {
-            if (FileHandler.TryLoadFile(purchaseHistoryFileName, out List<PurchasedItemModel> data))
+            if (FileHandler.TryLoadFile(purchaseHistoryFileName, out List<string> data))
             {
-                data ??= new List<PurchasedItemModel>();
+                data ??= new List<string>();
                 return data;
             }
 
-            return new List<PurchasedItemModel>();
+            return new List<string>();
         }
 
         private void Configure()
@@ -170,9 +170,10 @@ namespace BlueGravity.Game.Hub.Modules.Shop
             if (canPurchase)
             {
                 currenciesController.SubstractCurrency(item.CurrencyType, item.Price);
-                purchasedItems.Add(new PurchasedItemModel(item.Id, true));
+                purchasedItems.Add(item.Id);
                 item.ToggleIsPurchased(true);
                 confirmationView.Toggle(false);
+
                 Debug.Log("Item Purchased successfully!");
                 OnItemPurchased?.Invoke(item);
                 onSuccess?.Invoke();
@@ -192,8 +193,7 @@ namespace BlueGravity.Game.Hub.Modules.Shop
             {
                 currenciesController.AddCurrency(item.CurrencyType, item.SellingPrice);
                 item.ToggleIsPurchased(false);
-                PurchasedItemModel purchasedItemModel = GetPurchasedItem(item.Id);
-                purchasedItemModel.ToggleIsPurchased(false);
+                purchasedItems.Remove(item.Id);
 
                 confirmationView.Toggle(false);
                 Debug.Log("Item Sold successfully!");
@@ -205,20 +205,6 @@ namespace BlueGravity.Game.Hub.Modules.Shop
                 Debug.LogWarning("There was an error in the selling process");
                 onFailure?.Invoke();
             }
-        }
-
-        private PurchasedItemModel GetPurchasedItem(string id)
-        {
-            for (int i = 0; i < purchasedItems.Count; i++)
-            {
-                if (purchasedItems[i].ItemId == id)
-                {
-                    return purchasedItems[i];
-                }
-            }
-
-            Debug.LogWarning("Purchase model of id " + id + " was not found");
-            return null;
         }
 
         public void ToggleView(bool status)
