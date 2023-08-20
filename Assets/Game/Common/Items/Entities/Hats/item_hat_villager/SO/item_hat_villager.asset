@@ -15,5 +15,5 @@ MonoBehaviour:
   id: item_hat_villager
   icon: {fileID: -1279635400, guid: e6d994212eff3824ebb7a7bdb574a2e4, type: 3}
   isUnlocked: 0
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 22100000, guid: 83caa93744497274bbfca967f2174c93, type: 2}
   part: 0

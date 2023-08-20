@@ -15,5 +15,5 @@ MonoBehaviour:
   id: item_hat_wizard
   icon: {fileID: -394291583, guid: 85d82421baa470546a1edfdd9b09b3f7, type: 3}
   isUnlocked: 0
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 22100000, guid: 7e5eb2df2012cd64f98ec03fc9e62e65, type: 2}
   part: 0

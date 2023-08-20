@@ -15,5 +15,5 @@ MonoBehaviour:
   id: item_hair_white_2
   icon: {fileID: 1423705242, guid: d3474aed2a7efa546925d893cb55f694, type: 3}
   isUnlocked: 0
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 22100000, guid: 7b3a2238a9d5c0049ab11e2a31a4e35f, type: 2}
   part: 1

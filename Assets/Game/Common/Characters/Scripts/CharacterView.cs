@@ -98,6 +98,9 @@ namespace BlueGravity.Common.Characters
         public void SetAnimationAxis(string axis, float value)
         {
             mainBodyAnimator.SetFloat(axis, value);
+            headAccessoriesAnimator.SetFloat(axis, value);
+            headHairAnimator.SetFloat(axis, value);
+            costumeAnimator.SetFloat(axis, value);
         }
     }
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   id: item_costume_villager
   icon: {fileID: 418729957, guid: 9911152b2ae6d57499e7aeaeae637fb8, type: 3}
   isUnlocked: 0
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 22100000, guid: ca7e8207c420d9a4aadda20f713380f7, type: 2}
   part: 2

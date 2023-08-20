@@ -15,5 +15,5 @@ MonoBehaviour:
   id: item_costume_undies_2
   icon: {fileID: 569052751, guid: 0a65f4bad2daf8745ad0e62717b698c4, type: 3}
   isUnlocked: 0
-  animatorController: {fileID: 0}
+  animatorController: {fileID: 22100000, guid: 7e6f5df3964399746a0554d67c9c4dec, type: 2}
   part: 2
