@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 
 using BlueGravity.Common.Items.Body;
@@ -61,9 +63,20 @@ namespace BlueGravity.Common.Characters
             Body = character.Body;
         }
 
-        public void SetItem(BodyPartItemSO item)
+        public void SetParts(List<BodyPartItemSO> items)
         {
-            bodyPartAnimators[(int)item.Part].runtimeAnimatorController = item.AnimatorController;
+            for (int i = 0; i < items.Count; i++)
+            {
+                SetPart(items[i]);
+            }
+        }
+
+        public void SetPart(BodyPartItemSO item)
+        {
+            if (bodyPartAnimators != null && bodyPartAnimators.Length > 0)
+            {
+                bodyPartAnimators[(int)item.Part].runtimeAnimatorController = item.AnimatorController;
+            }
 
             switch (item.Part)
             {
@@ -85,6 +98,27 @@ namespace BlueGravity.Common.Characters
 
                 default:
                     Debug.Log(item.Part);
+                    break;
+            }
+        }
+
+        public void RemovePart(BODY_PART part)
+        {
+            if (bodyPartAnimators != null && bodyPartAnimators.Length > 0)
+            {
+                bodyPartAnimators[(int)part].runtimeAnimatorController = null;
+            }
+
+            switch (part)
+            {
+                case BODY_PART.ACCESSORY:
+                    HeadAccessory = null;
+                    break;
+                case BODY_PART.HAIR:
+                    HeadHair = null;
+                    break;
+                case BODY_PART.COSTUME:
+                    Body = null;
                     break;
             }
         }

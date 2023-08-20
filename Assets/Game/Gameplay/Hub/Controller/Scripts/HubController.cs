@@ -2,7 +2,7 @@ using UnityEngine;
 
 using BlueGravity.Common.Controller;
 using BlueGravity.Common.Player;
-using BlueGravity.Common.Characters;
+using BlueGravity.Common.Items.Body;
 
 using BlueGravity.Game.Hub.Modules.Shop;
 using BlueGravity.Game.Hub.Modules.Currencies;
@@ -21,6 +21,7 @@ namespace BlueGravity.Game.Hub.Controller
 
         protected override void Init()
         {
+            playerController.Init();
             currenciesController.Init();
             cameraController.SetTarget(playerController.transform);
             shopController.Init(null, TryRemovePlayerItemView);
@@ -39,14 +40,9 @@ namespace BlueGravity.Game.Hub.Controller
 
         private void TryRemovePlayerItemView(ShopItemSO item)
         {
-            SpriteCharacterView view = playerController.GetComponent<SpriteCharacterView>();
-
-            for (int i = 0; i < view.Parts; i++)
+            if (item.Item is BodyPartItemSO bodyItem)
             {
-                if (view[i] == item.Item.Icon)
-                {
-                    view[i] = null;
-                }
+                playerController.RemovePart(bodyItem);
             }
         }
     }

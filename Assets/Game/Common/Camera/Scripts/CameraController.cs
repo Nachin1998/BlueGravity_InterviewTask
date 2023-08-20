@@ -7,6 +7,7 @@ namespace BlueGravity.Common.Controller
         [Header("Main Configuration")]
         [SerializeField] private Camera mainCamera = null;
         [SerializeField] private Vector3 offsetFromtarget = Vector3.zero;
+        [SerializeField] private float size = 10.0f;
 
         private Transform target = null;
 
@@ -18,6 +19,7 @@ namespace BlueGravity.Common.Controller
             }
 
             mainCamera.transform.position = target.position - offsetFromtarget;
+            mainCamera.orthographicSize = size;
         }
 
         public void SetTarget(Transform target)

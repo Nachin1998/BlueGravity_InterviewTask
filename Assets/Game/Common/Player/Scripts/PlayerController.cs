@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 
 using BlueGravity.Common.Characters;
+using BlueGravity.Common.Items.Body;
 
 namespace BlueGravity.Common.Player
 {
@@ -12,6 +15,15 @@ namespace BlueGravity.Common.Player
         [SerializeField] private SpriteCharacterView view = null;
 
         private Vector2 movement = Vector2.zero;
+
+        private List<BodyPartItemSO> currentParts = null;
+
+        public List<BodyPartItemSO> CurrentParts { get => currentParts; }
+
+        public void Init()
+        {
+            currentParts = new List<BodyPartItemSO>();
+        }
 
         private void Update()
         {
@@ -26,6 +38,46 @@ namespace BlueGravity.Common.Player
         private void FixedUpdate()
         {
             rb2d.MovePosition(rb2d.position + movementSpeed * Time.fixedDeltaTime * movement);
+        }
+
+        public void SetPart(BodyPartItemSO item)
+        {
+            TryAddPart(item);
+        }
+
+        public void RemovePart(BodyPartItemSO item)
+        {
+            TryRemovePart(item);
+        }
+
+        private void TryAddPart(BodyPartItemSO item)
+        {
+            if (currentParts.Contains(item))
+            {
+                return;
+            }
+
+            for (int i = 0; i < currentParts.Count; i++)
+            {
+                if (currentParts[i].Part == item.Part)
+                {
+                    currentParts[i] = item;
+                    view.SetPart(item);
+                    return;
+                }
+            }
+
+            currentParts.Add(item);
+            view.SetPart(item);
+        }
+
+        private void TryRemovePart(BodyPartItemSO item)
+        {
+            if (currentParts.Contains(item))
+            {
+                currentParts.Remove(item);
+                view.RemovePart(item.Part);
+            }
         }
     }
 }

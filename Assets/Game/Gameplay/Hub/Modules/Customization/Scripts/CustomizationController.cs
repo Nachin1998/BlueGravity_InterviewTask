@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using BlueGravity.Common.Items.Body;
-using BlueGravity.Common.Characters;
+using BlueGravity.Common.Player;
 
 namespace BlueGravity.Game.Hub.Modules.Customization
 {
@@ -14,7 +14,7 @@ namespace BlueGravity.Game.Hub.Modules.Customization
         [SerializeField] private FashionDesignerView fashionDesignerView = null;
         [SerializeField] private List<CategorySO> categories = null;
 
-        private SpriteCharacterView characterView = null;
+        private PlayerController player = null;
 
         private Dictionary<CategorySO, int> currentCategoryIndexes = null;
 
@@ -32,9 +32,15 @@ namespace BlueGravity.Game.Hub.Modules.Customization
             fashionDesignerView.Init(
                 onInteracted: () =>
                 {
-                    view.Configure(characterView);
+                    view.Configure(player.CurrentParts);
                 },
-                SetCharacter,
+                onCustomerInRange: (customer) =>
+                {
+                    if (customer.TryGetComponent(out PlayerController player))
+                    {
+                        SetCharacter(player);
+                    }
+                },
                 onCustomerLeave: () =>
                 {
                     SetCharacter(null);
@@ -42,9 +48,9 @@ namespace BlueGravity.Game.Hub.Modules.Customization
                 });
         }
 
-        private void SetCharacter(SpriteCharacterView character)
+        private void SetCharacter(PlayerController player)
         {
-            characterView = character;
+            this.player = player;
         }
 
         private void ConfigureNextItem(string categoryId)
@@ -86,7 +92,7 @@ namespace BlueGravity.Game.Hub.Modules.Customization
         private void ConfigureItem(int index, BodyPartItemSO item)
         {
             view.ConfigureDisplayCharacter(index, item.Icon);
-            characterView.SetItem(item);
+            player.SetPart(item);
         }
 
         private CategorySO GetCategory(string id)

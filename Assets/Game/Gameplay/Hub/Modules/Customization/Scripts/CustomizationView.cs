@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using BlueGravity.Common.Characters;
+using BlueGravity.Common.Items.Body;
 
 namespace BlueGravity.Game.Hub.Modules.Customization
 {
@@ -26,9 +27,9 @@ namespace BlueGravity.Game.Hub.Modules.Customization
             closeButton.onClick.AddListener(() => Toggle(false));
         }
 
-        public void Configure(SpriteCharacterView character)
+        public void Configure(List<BodyPartItemSO> parts)
         {
-            displayCharacterView.CopyBody(character);
+            displayCharacterView.SetParts(parts);
 
             Toggle(true);
         }
