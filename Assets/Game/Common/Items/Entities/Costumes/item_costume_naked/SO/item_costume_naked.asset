@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbbafa0dbf867e94190ed5b6ecdabac8, type: 3}
+  m_Script: {fileID: 11500000, guid: fb82387426641044887865726552b3e3, type: 3}
   m_Name: item_costume_naked
   m_EditorClassIdentifier: 
   id: item_costume_naked
   icon: {fileID: 0}
   isUnlocked: 1
+  animatorController: {fileID: 0}
+  part: 2

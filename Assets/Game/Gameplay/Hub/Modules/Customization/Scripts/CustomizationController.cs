@@ -60,7 +60,7 @@ namespace BlueGravity.Game.Hub.Modules.Customization
 
             currentCategoryIndexes[category] = index;
 
-            ItemSO item = category.UnlockedItems[index];
+            BodyPartItemSO item = category.UnlockedItems[index];
 
             ConfigureItem(categories.IndexOf(category), item);
         }
@@ -78,14 +78,15 @@ namespace BlueGravity.Game.Hub.Modules.Customization
 
             currentCategoryIndexes[category] = index;
 
-            ItemSO item = category.UnlockedItems[index];
+            BodyPartItemSO item = category.UnlockedItems[index];
 
             ConfigureItem(categories.IndexOf(category), item);
         }
 
-        private void ConfigureItem(int index, ItemSO item)
+        private void ConfigureItem(int index, BodyPartItemSO item)
         {
             view.ConfigureDisplayCharacter(index, item.Icon);
+            characterView.SetItem(item);
         }
 
         private CategorySO GetCategory(string id)

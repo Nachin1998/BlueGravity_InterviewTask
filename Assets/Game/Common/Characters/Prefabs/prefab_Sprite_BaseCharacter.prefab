@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7606987363133507856}
   - component: {fileID: 4571708881778261970}
   m_Layer: 0
-  m_Name: body
+  m_Name: costume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,10 @@ MonoBehaviour:
   headAccessoriesRenderer: {fileID: 7606987363883059327}
   headHairRenderer: {fileID: 7606987364950123232}
   bodyRenderer: {fileID: 7606987363133507856}
-  animator: {fileID: 0}
+  mainBodyAnimator: {fileID: 6611478145124948357}
+  headAccessoriesAnimator: {fileID: 7677123874558563450}
+  headHairAnimator: {fileID: 1468962592260315082}
+  costumeAnimator: {fileID: 4571708881778261970}
 --- !u!210 &7074363720394988041
 SortingGroup:
   m_ObjectHideFlags: 0

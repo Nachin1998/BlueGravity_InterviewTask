@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Costume_Default_Left
+  m_Name: item_costume_default_Down
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

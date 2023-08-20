@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace BlueGravity.Common.Characters
@@ -9,7 +8,12 @@ namespace BlueGravity.Common.Characters
         [SerializeField] protected TRenderer headAccessoriesRenderer = null;
         [SerializeField] protected TRenderer headHairRenderer = null;
         [SerializeField] protected TRenderer bodyRenderer = null;
-        [SerializeField] protected Animator animator = null;
+
+        [Header("Animators Configuration")]
+        [SerializeField] protected Animator mainBodyAnimator = null;
+        [SerializeField] protected Animator headAccessoriesAnimator = null;
+        [SerializeField] protected Animator headHairAnimator = null;
+        [SerializeField] protected Animator costumeAnimator = null;
 
         public int Parts { get => 3; }
         public abstract Sprite HeadAccessory { get; protected set; }
@@ -57,6 +61,35 @@ namespace BlueGravity.Common.Characters
             Body = character.Body;
         }
 
+        public void SetItem(BodyPartItemSO item)
+        {
+            switch (item.Part)
+            {
+                case BODY_PART.ACCESSORY:
+                    headAccessoriesAnimator.runtimeAnimatorController = item.AnimatorController;
+                    HeadAccessory = item.Icon;
+                    break;
+
+                case BODY_PART.HAIR:
+                    headHairAnimator.runtimeAnimatorController = item.AnimatorController;
+                    HeadHair = item.Icon;
+                    break;
+
+                case BODY_PART.COSTUME:
+                    costumeAnimator.runtimeAnimatorController = item.AnimatorController;
+                    Body = item.Icon;
+                    break;
+
+                case BODY_PART.INVALID:
+                    Debug.LogError("Item " + item.Id + " not configured correctly");
+                    break;
+
+                default:
+                    Debug.Log(item.Part);
+                    break;
+            }
+        }
+
         public void SetAnimationSpeed(float speed)
         {
             SetAnimationAxis("speed", speed);
@@ -64,7 +97,7 @@ namespace BlueGravity.Common.Characters
 
         public void SetAnimationAxis(string axis, float value)
         {
-            animator.SetFloat(axis, value);
+            mainBodyAnimator.SetFloat(axis, value);
         }
     }
 }

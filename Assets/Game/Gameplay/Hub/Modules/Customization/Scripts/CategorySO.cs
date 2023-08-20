@@ -11,15 +11,15 @@ namespace BlueGravity.Game.Hub.Modules.Customization
     {
         [Header("Main Configuration")]
         [SerializeField] private string id = string.Empty;
-        [SerializeField] private List<ItemSO> items = null;
+        [SerializeField] private List<BodyPartItemSO> items = null;
 
         public string Id { get => id; }
-        public List<ItemSO> Items { get => items; }
-        public List<ItemSO> UnlockedItems
+        public List<BodyPartItemSO> Items { get => items; }
+        public List<BodyPartItemSO> UnlockedItems
         {
             get
             {
-                List<ItemSO> list = new List<ItemSO>();
+                List<BodyPartItemSO> list = new List<BodyPartItemSO>();
 
                 for (int i = 0; i < items.Count; i++)
                 {
