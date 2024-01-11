@@ -2,6 +2,7 @@ using System;
 
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.UI;
 
 namespace BlueGravity.Game.Town.Modules.Shop
 {
@@ -9,8 +10,10 @@ namespace BlueGravity.Game.Town.Modules.Shop
     {
         [SerializeField] private Transform holder = null;
         [SerializeField] private Transform shopItemsHolder = null;
+        [SerializeField] private Button closeButton = null;
         [SerializeField] private ShopItemView shopItemPrefab = null;
 
+        public event Action OnCloseButtonPressed = null;
         public event Action OnItemPressed = null;
         public event Action OnItemPurchased = null;
 
@@ -19,6 +22,18 @@ namespace BlueGravity.Game.Town.Modules.Shop
         public void Init()
         {
             shopItemPool = new ObjectPool<ShopItemView>(GenerateItem, GetItem, ReleaseItem);
+            closeButton.onClick.AddListener(ClosePanel);
+        }
+
+        private void ClosePanel()
+        {
+            Toggle(false);
+            OnCloseButtonPressed?.Invoke();
+        }
+
+        public void Toggle(bool status)
+        {
+            holder.gameObject.SetActive(status);
         }
 
         private ShopItemView GenerateItem()

@@ -1,5 +1,81 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5704072293009623065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5913652794071903125}
+  - component: {fileID: 4220743187823453411}
+  - component: {fileID: 6842285252010705069}
+  - component: {fileID: 7778765063656583933}
+  m_Layer: 0
+  m_Name: Interactor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5913652794071903125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5704072293009623065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3505457534689789184}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4220743187823453411
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5704072293009623065}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.7
+--- !u!114 &6842285252010705069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5704072293009623065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cbf2e346d9c12479458ea9a62ec533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7778765063656583933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5704072293009623065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041384fcd6e8dc840a349a1eeff0a9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionKey: 101
+  interactionArea: {fileID: 6842285252010705069}
 --- !u!1001 &6427922797532934551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63,11 +139,37 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6611478145124948357, guid: ca4a8147c6dd2cf4c9693abb4bb8fb6c, type: 3}
   m_PrefabInstance: {fileID: 6427922797532934551}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3505457534689789184 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7606987364450382999, guid: ca4a8147c6dd2cf4c9693abb4bb8fb6c, type: 3}
+  m_PrefabInstance: {fileID: 6427922797532934551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3505457534689789186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7606987364450382997, guid: ca4a8147c6dd2cf4c9693abb4bb8fb6c, type: 3}
   m_PrefabInstance: {fileID: 6427922797532934551}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &6340372254698708294
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505457534689789186}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &7398004724117066381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,27 +192,6 @@ MonoBehaviour:
   - {fileID: 7369411520925650501}
   rigidbody2d: {fileID: 6340372254698708294}
   movementSpeed: 5
---- !u!50 &6340372254698708294
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3505457534689789186}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &3505457535256187767 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 7606987364950123232, guid: ca4a8147c6dd2cf4c9693abb4bb8fb6c, type: 3}

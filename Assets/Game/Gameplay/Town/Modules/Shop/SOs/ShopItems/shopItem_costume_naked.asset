@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8765371d4d2207b4f91cd6b18317e0e6, type: 3}
   m_Name: shopItem_costume_naked
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
-  price: 0
-  sellingPriceReductionPercentage: 100
+  item: {fileID: 11400000, guid: 5c075cd2f11cf7647ac59ae88700fe60, type: 2}
+  price: 10
+  sellingPriceReductionPercentage: 70
