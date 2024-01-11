@@ -8,10 +8,11 @@ namespace BlueGravity.Game.Town.Modules.Shop
     public class ShopController : MonoBehaviour
     {
         [SerializeField] private ShopView view = null;
+        [SerializeField] private ShopItemSO[] items = null;
 
-        private void Start()
+        public void Init()
         {
-
+            view.Init();
         }
 
         private void Update()

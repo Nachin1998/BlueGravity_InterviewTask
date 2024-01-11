@@ -12,7 +12,7 @@ namespace BlueGravity.Game.Town.Controller
 
         private void Start()
         {
-
+            shopController.Init();
         }
 
         private void Update()

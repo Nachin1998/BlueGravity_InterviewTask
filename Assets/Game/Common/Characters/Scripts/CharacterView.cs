@@ -32,7 +32,10 @@ namespace BlueGravity.Common.Characters
         {
             for (int i = 0; i < bodyAnimators.Length; i++)
             {
-                bodyAnimators[i].SetFloat(speedHash, speed);
+                if (bodyAnimators[i].runtimeAnimatorController != null)
+                {
+                    bodyAnimators[i].SetFloat(speedHash, speed);
+                }
             }
         }
 
@@ -40,8 +43,11 @@ namespace BlueGravity.Common.Characters
         {
             for (int i = 0; i < bodyAnimators.Length; i++)
             {
-                bodyAnimators[i].SetFloat(horizontalHash, direction.x);
-                bodyAnimators[i].SetFloat(verticalHash, direction.y);
+                if (bodyAnimators[i].runtimeAnimatorController != null)
+                {
+                    bodyAnimators[i].SetFloat(horizontalHash, direction.x);
+                    bodyAnimators[i].SetFloat(verticalHash, direction.y);
+                }
             }
         }
     }

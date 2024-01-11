@@ -2,7 +2,8 @@
     "name": "Town",
     "rootNamespace": "",
     "references": [
-        "GUID:273f14f4a2202fd409c03207e28aac56"
+        "GUID:273f14f4a2202fd409c03207e28aac56",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
