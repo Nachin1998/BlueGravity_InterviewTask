@@ -373,8 +373,8 @@ MonoBehaviour:
   accessoryRenderer: {fileID: 7606987363883059327}
   hairRenderer: {fileID: 7606987364950123232}
   costumeRenderer: {fileID: 7606987363133507856}
-  characterAnimator: {fileID: 6611478145124948357}
-  bodyPartAnimators:
+  bodyAnimators:
+  - {fileID: 6611478145124948357}
   - {fileID: 7677123874558563450}
   - {fileID: 1468962592260315082}
   - {fileID: 4571708881778261970}
