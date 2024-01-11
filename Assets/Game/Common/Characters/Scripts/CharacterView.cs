@@ -1,3 +1,4 @@
+using BlueGravity.Common.Skins;
 using UnityEngine;
 
 namespace BlueGravity.Common.Characters
@@ -9,9 +10,9 @@ namespace BlueGravity.Common.Characters
         [SerializeField] protected TRenderer hairRenderer = null;
         [SerializeField] protected TRenderer costumeRenderer = null;
         
-        [Header("A Configuration")]
+        [Header("Animators Configuration")]
         [SerializeField] private Animator[] bodyAnimators = null;
-
+        
         public abstract Sprite HeadAccessorySprite { get; protected set; }
         public abstract Sprite HeadHairSprite { get; protected set; }
         public abstract Sprite BodyCostumeSprite { get; protected set; }
