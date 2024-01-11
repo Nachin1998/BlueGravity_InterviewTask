@@ -12,8 +12,15 @@ namespace BlueGravity.Common.Player
 
         private Vector2 movement = Vector2.zero;
 
+        private bool inputEnabled = true;
+
         private void Update()
         {
+            if (!inputEnabled)
+            {
+                return;
+            }
+
             movement.x = Input.GetAxis("Horizontal");
             movement.y = Input.GetAxis("Vertical");
 
@@ -23,7 +30,23 @@ namespace BlueGravity.Common.Player
 
         private void FixedUpdate()
         {
+            if (!inputEnabled)
+            {
+                return;
+            }
+
             rigidbody2d.MovePosition(rigidbody2d.position + movementSpeed * Time.fixedDeltaTime * movement);
+        }
+
+        public void ToggleInteraction(bool status)
+        {
+            inputEnabled = status;
+
+            if (!inputEnabled)
+            {
+                SetAnimationDirection(Vector2.zero);
+                SetAnimationSpeed(0.0f);
+            }
         }
     }
 }
