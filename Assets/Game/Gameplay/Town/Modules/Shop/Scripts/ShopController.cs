@@ -67,9 +67,6 @@ namespace BlueGravity.Game.Town.Modules.Shop
             {
                 ProcessPurchase(item);
             }
-
-            confirmPurchaseView.Configure(item);
-            confirmPurchaseView.Toggle(true);
         }
 
         private void ProcessSelling(ShopItemSO item)
