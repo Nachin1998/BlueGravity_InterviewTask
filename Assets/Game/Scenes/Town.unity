@@ -1038,6 +1038,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2914729159732247822, guid: bb1a4093c80669c43aae9abab90c083d, type: 3}
+      propertyPath: startingSkin
+      value: 
+      objectReference: {fileID: 11400000, guid: 203e522e0300e3243a53844ba5e94096, type: 2}
     - target: {fileID: 5055590530942035264, guid: bb1a4093c80669c43aae9abab90c083d, type: 3}
       propertyPath: m_Name
       value: prefab_ShopKeeper
@@ -4023,6 +4027,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2914729159732247822, guid: bb1a4093c80669c43aae9abab90c083d, type: 3}
+      propertyPath: startingSkin
+      value: 
+      objectReference: {fileID: 11400000, guid: c5da410924e6796418c9622b73addc3b, type: 2}
     - target: {fileID: 5055590530942035264, guid: bb1a4093c80669c43aae9abab90c083d, type: 3}
       propertyPath: m_Name
       value: prefab_FashonDesigner
@@ -24406,6 +24414,10 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7398004724117066381, guid: da64da326a944434d896ae96a0107654, type: 3}
+      propertyPath: startingSkin
+      value: 
+      objectReference: {fileID: 11400000, guid: c5da410924e6796418c9622b73addc3b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da64da326a944434d896ae96a0107654, type: 3}
 --- !u!4 &1823350999 stripped

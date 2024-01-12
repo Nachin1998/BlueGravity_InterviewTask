@@ -185,11 +185,12 @@ MonoBehaviour:
   accessoryRenderer: {fileID: 3505457536356022760}
   hairRenderer: {fileID: 3505457535256187767}
   costumeRenderer: {fileID: 3505457535469533319}
+  bodyAnimator: {fileID: 212832338130479122}
   bodyAnimators:
-  - {fileID: 212832338130479122}
   - {fileID: 3728433790732609005}
   - {fileID: 5572742793691309661}
   - {fileID: 7369411520925650501}
+  startingSkin: {fileID: 0}
   rigidbody2d: {fileID: 6340372254698708294}
   movementSpeed: 5
 --- !u!212 &3505457535256187767 stripped

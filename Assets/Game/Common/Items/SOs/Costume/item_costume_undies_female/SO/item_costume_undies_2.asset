@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11831b57197402740b6df8ffdb84d1ff, type: 3}
+  m_Name: item_costume_undies_2
+  m_EditorClassIdentifier: 
+  id: item_costume_undies_female
+  icon: {fileID: 569052751, guid: 0a65f4bad2daf8745ad0e62717b698c4, type: 3}
+  animatorController: {fileID: 22100000, guid: 7e6f5df3964399746a0554d67c9c4dec, type: 2}
+  part: 2

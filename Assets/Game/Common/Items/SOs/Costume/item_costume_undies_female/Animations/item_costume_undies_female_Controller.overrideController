@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: item_costume_undies_female_Controller
+  m_Controller: {fileID: 9100000, guid: 7986ebafdc007da4eaa522858b0652b5, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 7faa2954bc3261a4b86ab336686651b1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 572954375856f4f44bd242916e51a564, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: aa24ab46f9ca32c4a9cf45653042104e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f382abff400c97540993325559141bf0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 35f3fef6050da14449b3328ca3b9f24a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 47fb066ee24cafa438f12fe66190edff, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 126ee26c071a7504fa289ea5899ca764, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 01bbf1a400a8e8e4c90298cf54dd525a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 34f50a245e2f47342a8d8fce471a56da, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 898a70f18408dab4787119f6d4ade71e, type: 2}

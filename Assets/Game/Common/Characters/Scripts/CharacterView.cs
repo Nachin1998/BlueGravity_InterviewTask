@@ -1,5 +1,7 @@
-using BlueGravity.Common.Skins;
 using UnityEngine;
+
+using BlueGravity.Common.Items.BodyParts;
+using BlueGravity.Common.Skins;
 
 namespace BlueGravity.Common.Characters
 {
@@ -11,7 +13,11 @@ namespace BlueGravity.Common.Characters
         [SerializeField] protected TRenderer costumeRenderer = null;
         
         [Header("Animators Configuration")]
+        [SerializeField] private Animator bodyAnimator = null;
         [SerializeField] private Animator[] bodyAnimators = null;
+
+        [Header("Skin Configuration")]
+        [SerializeField] private SkinSO startingSkin = null;
         
         public abstract Sprite HeadAccessorySprite { get; protected set; }
         public abstract Sprite HeadHairSprite { get; protected set; }
@@ -21,15 +27,41 @@ namespace BlueGravity.Common.Characters
         private readonly int horizontalHash = Animator.StringToHash("horizontal");
         private readonly int verticalHash = Animator.StringToHash("vertical");
 
-        public void Copy(CharacterView<TRenderer> character)
+        private void Awake()
         {
-            HeadAccessorySprite = character.HeadAccessorySprite;
-            HeadHairSprite = character.HeadHairSprite;
-            BodyCostumeSprite = character.BodyCostumeSprite;
+            if (startingSkin != null)
+            {
+                SetBodyPart(startingSkin.AccessoryItem);
+                SetBodyPart(startingSkin.HairItem);
+                SetBodyPart(startingSkin.CostumeItem);
+            }
+        }
+
+        private void SetBodyPart(BodyPartItemSO item)
+        {
+            switch (item.Part)
+            {
+                case BODY_PART.ACCESSORY:
+                    HeadAccessorySprite = item.Icon;
+                    break;
+
+                case BODY_PART.HAIR:
+                    HeadHairSprite = item.Icon;
+                    break;
+
+                case BODY_PART.COSTUME:
+                    BodyCostumeSprite = item.Icon;
+                    break;
+            }
+
+            int index = (int)item.Part;
+            bodyAnimators[index].runtimeAnimatorController = item.AnimatorController;
         }
 
         protected void SetAnimationSpeed(float speed)
         {
+            bodyAnimator.SetFloat(speedHash, speed);
+            
             for (int i = 0; i < bodyAnimators.Length; i++)
             {
                 if (bodyAnimators[i].runtimeAnimatorController != null)
@@ -41,6 +73,9 @@ namespace BlueGravity.Common.Characters
 
         protected void SetAnimationDirection(Vector2 direction)
         {
+            bodyAnimator.SetFloat(horizontalHash, direction.x);
+            bodyAnimator.SetFloat(verticalHash, direction.y);
+
             for (int i = 0; i < bodyAnimators.Length; i++)
             {
                 if (bodyAnimators[i].runtimeAnimatorController != null)

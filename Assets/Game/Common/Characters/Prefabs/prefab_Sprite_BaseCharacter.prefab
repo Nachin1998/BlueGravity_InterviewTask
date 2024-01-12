@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -315848125
-  m_SortingLayer: 0
+  m_SortingLayerID: 723268097
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -176,8 +176,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -315848125
-  m_SortingLayer: 0
+  m_SortingLayerID: 723268097
+  m_SortingLayer: 2
   m_SortingOrder: 3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -287,8 +287,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -315848125
-  m_SortingLayer: 0
+  m_SortingLayerID: 723268097
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -103156357, guid: 485d438b56309b64bbbf71cadffa952a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -373,11 +373,12 @@ MonoBehaviour:
   accessoryRenderer: {fileID: 7606987363883059327}
   hairRenderer: {fileID: 7606987364950123232}
   costumeRenderer: {fileID: 7606987363133507856}
+  bodyAnimator: {fileID: 6611478145124948357}
   bodyAnimators:
-  - {fileID: 6611478145124948357}
   - {fileID: 7677123874558563450}
   - {fileID: 1468962592260315082}
   - {fileID: 4571708881778261970}
+  startingSkin: {fileID: 0}
 --- !u!1 &7606987364950123246
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,8 +450,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -315848125
-  m_SortingLayer: 0
+  m_SortingLayerID: 723268097
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
