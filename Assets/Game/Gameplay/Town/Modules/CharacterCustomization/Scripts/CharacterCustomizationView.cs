@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,9 +27,14 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
         public event Action<bool> OnPanelToggled = null;
         #endregion
 
+        #region PRIVATE_FIELDS
+        private List<CustomizationCategoryView> views = null;
+        #endregion
+
         #region PUBLIC_METHODS
         public void Init()
         {
+            views = new List<CustomizationCategoryView>();
             closeButton.onClick.AddListener(ClosePanel);
         }
 
@@ -36,6 +42,19 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
         {
             CustomizationCategoryView item = Instantiate(categoryViewPrefab, categoriesHolder);
             item.Init(id, onLeftPressed, onRightPressed);
+            views.Add(item);
+        }
+
+        public CustomizationCategoryView GetView(string id)
+        {
+            CustomizationCategoryView view = views.Find((item) => item.Id == id);
+
+            if (view == null)
+            {
+                Debug.LogError("Failed to find view of id " + id);
+            }
+
+            return view;
         }
 
         public void ConfigurePlayer(PlayerView player)

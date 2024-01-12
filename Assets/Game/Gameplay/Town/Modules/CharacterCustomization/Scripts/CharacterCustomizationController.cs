@@ -22,8 +22,11 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
         #region PRIVATE_FIELDS
         private Dictionary<string, List<BodyPartItemSO>> categoryItemsDic = null;
         private Dictionary<string, int> categoryIndexes = null;
-
         private PlayerView player = null;
+        #endregion
+
+        #region CONSTANTS
+        private const int minimumItemsAmount = 1;
         #endregion
 
         #region ACTIONS
@@ -39,13 +42,13 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
 
             view.OnPanelToggled += OnPanelToggled;
 
+            view.Init();
             for (int i = 0; i < (int)BODY_PART.MAX; i++)
             {
                 BODY_PART currentPart = (BODY_PART)i;
                 string id = currentPart.ToString();
                 view.AddCategory(id, ConfigurePreviousItem, ConfigureNextItem);
             }
-            view.Init();
         }
 
         public void RefreshItems(List<BodyPartItemSO> items)
@@ -61,6 +64,7 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
                 string id = currentPart.ToString();
                 categoryItemsDic.Add(id, categoryItems);
                 categoryIndexes.Add(id, 0);
+                view.GetView(id).ToggleInteractability(categoryItemsDic[id].Count > minimumItemsAmount);
             }
         }
         #endregion
