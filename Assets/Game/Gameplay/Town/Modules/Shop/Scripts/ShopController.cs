@@ -12,6 +12,8 @@ namespace BlueGravity.Game.Town.Modules.Shop
 {
     public class ShopController : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
+        [Header("Main Configuration")]
         [SerializeField] private ShopView view = null;
         [SerializeField] private ConfirmPurchaseView confirmPurchaseView = null;
         [SerializeField] private CurrenciesController currenciesController = null;
@@ -21,11 +23,15 @@ namespace BlueGravity.Game.Town.Modules.Shop
         [Header("Audio Configuration")]
         [SerializeField] private AudioChannel audioChannel = null;
         [SerializeField] private AudioSO transactionSFX = null;
+        #endregion
 
+        #region ACTIONS
         public event Action<bool> OnShopToggled = null;
         public event Action<ItemSO> OnItemSold = null;
         public event Action<ItemSO> OnItemPurchased = null;
+        #endregion
 
+        #region PUBLIC_METHODS
         public void Init()
         {
             shopKeeper.OnInteracted += TriggerShop;
@@ -40,7 +46,9 @@ namespace BlueGravity.Game.Town.Modules.Shop
         {
             return items;
         }
+        #endregion
 
+        #region PRIVATE_METHODS
         private void ProcessItem(ShopItemView view)
         {
             ShopItemSO item = GetShopItem(view.Id);
@@ -122,5 +130,6 @@ namespace BlueGravity.Game.Town.Modules.Shop
             Debug.LogError("Failed to find shop item of id " + id);
             return null;
         }
+        #endregion
     }
 }

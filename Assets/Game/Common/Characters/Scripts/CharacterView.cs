@@ -9,6 +9,7 @@ namespace BlueGravity.Common.Characters
 {
     public abstract class CharacterView<TRenderer> : MonoBehaviour where TRenderer : Component
     {
+        #region EXPOSED_FIELDS
         [Header("Main Configuration")]
         [SerializeField] protected TRenderer accessoryRenderer = null;
         [SerializeField] protected TRenderer hairRenderer = null;
@@ -21,21 +22,28 @@ namespace BlueGravity.Common.Characters
         [Header("Skin Configuration")]
         [SerializeField] protected SkinSO startingSkin = null;
         [SerializeField] protected SkinSO fallbackSkin = null;
+        #endregion
 
+        #region PRIVATE_FIELDS
         private BodyPartItemSO accessoryItem = null;
         private BodyPartItemSO hairItem = null;
         private BodyPartItemSO costumeItem = null;
+        #endregion
 
+        #region PROPERTIES
         public abstract Sprite HeadAccessorySprite { get; protected set; }
         public abstract Sprite HeadHairSprite { get; protected set; }
         public abstract Sprite BodyCostumeSprite { get; protected set; }
-
         public List<BodyPartItemSO> BodyParts { get => new List<BodyPartItemSO>() { accessoryItem, hairItem, costumeItem }; }
+        #endregion
 
+        #region CONSTANTS
         private readonly int speedHash = Animator.StringToHash("speed");
         private readonly int horizontalHash = Animator.StringToHash("horizontal");
         private readonly int verticalHash = Animator.StringToHash("vertical");
+        #endregion
 
+        #region UNITY_CALLS
         private void Awake()
         {
             if (startingSkin != null)
@@ -45,7 +53,9 @@ namespace BlueGravity.Common.Characters
                 SetBodyPart(startingSkin.CostumeItem);
             }
         }
+        #endregion
 
+        #region PUBLIC_METHODS
         public void SetBodyPart(BodyPartItemSO item)
         {
             if (item == null)
@@ -112,7 +122,9 @@ namespace BlueGravity.Common.Characters
                 }
             }
         }
+        #endregion
 
+        #region PROTECTED_METHODS
         protected void SetAnimationSpeed(float speed)
         {
             bodyAnimator.SetFloat(speedHash, speed);
@@ -140,5 +152,6 @@ namespace BlueGravity.Common.Characters
                 }
             }
         }
+        #endregion
     }
 }

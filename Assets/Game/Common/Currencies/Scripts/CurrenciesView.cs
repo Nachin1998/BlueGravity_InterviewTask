@@ -7,14 +7,18 @@ namespace BlueGravity.Common.Currencies
 {
     public class CurrenciesView : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
         [Header("Main Configuration")]
-        [SerializeField] private Transform holder = null;
         [SerializeField] private Transform itemsHolder = null;
         [SerializeField] private CurrencyItemView currencyItemPrefab = null;
+        #endregion
 
+        #region PRIVATE_FIELDS
         private ObjectPool<CurrencyItemView> currenciesPool = null;
         private List<CurrencyItemView> activeItems = null;
+        #endregion
 
+        #region PUBLIC_METHODS
         public void Init(List<CurrencySO> currencies, List<CurrencyModel> models)
         {
             currenciesPool = new ObjectPool<CurrencyItemView>(GenerateItem, GetItem, ReleaseItem);
@@ -43,7 +47,9 @@ namespace BlueGravity.Common.Currencies
                 }
             }
         }
+        #endregion
 
+        #region PRIVATE_METHODS
         private CurrencyItemView GenerateItem()
         {
             return Instantiate(currencyItemPrefab, itemsHolder);
@@ -58,5 +64,6 @@ namespace BlueGravity.Common.Currencies
         {
             item.Toggle(false);
         }
+        #endregion
     }
 }

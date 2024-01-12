@@ -7,13 +7,19 @@ namespace BlueGravity.Common.Interaction
     [RequireComponent(typeof(InteractionArea))]
     public class Interactor : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
+        [Header("Main Configuration")]
         [SerializeField] private KeyCode interactionKey = KeyCode.E;
         [SerializeField] private InteractionArea interactionArea = null;
         [SerializeField] private AudioChannel audioChannel = null;
         [SerializeField] private AudioSO popupSfx = null;
+        #endregion
 
+        #region PRIVATE_FIELDS
         private IInteractable currentInteractable = null;
+        #endregion
 
+        #region UNITY_CALLS
         private void Awake()
         {
             interactionArea = interactionArea != null ? interactionArea : GetComponent<InteractionArea>();
@@ -28,7 +34,9 @@ namespace BlueGravity.Common.Interaction
                 currentInteractable?.Interact();
             }
         }
+        #endregion
 
+        #region PRIVATE_METHODS
         private void RecieveInteractable(GameObject obj)
         {
             if (obj.TryGetComponent(out IInteractable interactable))
@@ -50,5 +58,6 @@ namespace BlueGravity.Common.Interaction
                 }
             }
         }
+        #endregion
     }
 }

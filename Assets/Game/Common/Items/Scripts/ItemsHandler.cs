@@ -6,8 +6,12 @@ namespace BlueGravity.Common.Items
 {
     public class ItemsHandler : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
+        [Header("Main Configuration")]
         [SerializeField] private List<ItemSO> items = null;
+        #endregion
 
+        #region PUBLIC_METHODS
         public List<T> GetItems<T>() where T : ItemSO
         {
             List<T> toReturn = new List<T>();
@@ -21,18 +25,6 @@ namespace BlueGravity.Common.Items
 
             return toReturn;
         }
-
-        public T GetItem<T>(string id) where T : ItemSO
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i].Id == id)
-                {
-                    return items[i] as T;
-                }
-            }
-
-            return null;
-        }
+        #endregion
     }
 }

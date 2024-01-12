@@ -7,17 +7,24 @@ namespace BlueGravity.Common.Currencies
 {
     public class CurrenciesController : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
         [Header("Main Configuration")]
-        [SerializeField] protected List<CurrencySO> currencies = null;
-        [SerializeField] protected CurrenciesView view = null;
+        [SerializeField] private List<CurrencySO> currencies = null;
+        [SerializeField] private CurrenciesView view = null;
 
         [Header("Debug values")]
         [SerializeField] private int currenciesInitialValue = 0;
+        #endregion
 
-        protected List<CurrencyModel> currenciesValues = null;
+        #region PRIVATE_FIELDS
+        private List<CurrencyModel> currenciesValues = null;
+        #endregion
 
+        #region ACTIONS
         public event Action<CurrencyModel> OnCurrencyUpdated = null;
+        #endregion
 
+        #region PUBLIC_METHODS
         public void Init()
         {
             currenciesValues = new List<CurrencyModel>();
@@ -26,14 +33,6 @@ namespace BlueGravity.Common.Currencies
             ConfigureCurrencies();
             
             view.Init(currencies, currenciesValues);
-        }
-
-        private void ConfigureCurrencies()
-        {
-            for (int i = 0; i < currencies.Count; i++)
-            {
-                currenciesValues.Add(new CurrencyModel(currencies[i].Id, currenciesInitialValue));
-            }
         }
 
         public int GetCurrencyValue(CurrencySO currency)
@@ -62,6 +61,16 @@ namespace BlueGravity.Common.Currencies
             CurrencyModel model = GetCurrencyModel(currencyId);
             return model.Value;
         }
+        #endregion
+
+        #region PRIVATE_METHODS
+        private void ConfigureCurrencies()
+        {
+            for (int i = 0; i < currencies.Count; i++)
+            {
+                currenciesValues.Add(new CurrencyModel(currencies[i].Id, currenciesInitialValue));
+            }
+        }
 
         private CurrencyModel GetCurrencyModel(string currencyId)
         {
@@ -76,5 +85,6 @@ namespace BlueGravity.Common.Currencies
             Debug.LogError("Currency of id " + currencyId + " was not found.");
             return null;
         }
+        #endregion
     }
 }

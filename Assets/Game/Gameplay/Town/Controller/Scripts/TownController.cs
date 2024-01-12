@@ -15,13 +15,16 @@ namespace BlueGravity.Game.Town.Controller
 {
     public class TownController : SceneController
     {
+        #region EXPOSED_FIELDS
         [Header("Town Configuration")]
         [SerializeField] private PlayerController playerController = null;
         [SerializeField] private ShopController shopController = null;
         [SerializeField] private CurrenciesController currenciesController = null;
         [SerializeField] private CharacterCustomizationController characterCustomizationController = null;
         [SerializeField] private ItemsHandler itemsHandler = null;
+        #endregion
 
+        #region PROTECTED_METHODS
         protected override void Init()
         {
             currenciesController.Init();
@@ -36,7 +39,9 @@ namespace BlueGravity.Game.Town.Controller
             characterCustomizationController.Init();
             RefreshCustomizationController();
         }
+        #endregion
 
+        #region PRIVATE_METHODS
         private void SwitchPlayerInteraction(bool status)
         {
             playerController.ToggleInteraction(!status);
@@ -86,5 +91,6 @@ namespace BlueGravity.Game.Town.Controller
 
             return toReturn;
         }
+        #endregion
     }
 }

@@ -7,15 +7,22 @@ namespace BlueGravity.Common.Currencies
 {
     public class CurrencyItemView : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
         [Header("Main Configuration")]
         [SerializeField] private Transform holder = null;
         [SerializeField] private Image icon = null;
         [SerializeField] private TMP_Text amountText = null;
+        #endregion
 
+        #region PRIVATE_FIELDS
         private string id = string.Empty;
+        #endregion
 
+        #region PROPERTIES
         public string Id { get => id; }
+        #endregion
 
+        #region PUBLIC_METHODS
         public void Configure(CurrencySO currency, CurrencyModel model)
         {
             id = currency.Id;
@@ -32,5 +39,6 @@ namespace BlueGravity.Common.Currencies
         {
             holder.gameObject.SetActive(status);
         }
+        #endregion
     }
 }

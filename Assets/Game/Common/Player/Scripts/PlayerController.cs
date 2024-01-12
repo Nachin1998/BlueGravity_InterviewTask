@@ -6,8 +6,12 @@ namespace BlueGravity.Common.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
+        [Header("Main Configuration")]
         [SerializeField] private PlayerView view = null;
+        #endregion
 
+        #region PUBLIC_METHODS
         public void ToggleInteraction(bool status)
         {
             view.ToggleInteraction(status);
@@ -17,5 +21,6 @@ namespace BlueGravity.Common.Player
         {
             view.RemovePart(part);
         }
+        #endregion
     }
 }

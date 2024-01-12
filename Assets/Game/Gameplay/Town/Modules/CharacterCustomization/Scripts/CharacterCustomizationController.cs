@@ -12,17 +12,25 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
 {
     public class CharacterCustomizationController : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
+        [Header("Main Configuration")]
         [SerializeField] private CharacterCustomizationView view = null;
         [SerializeField] private NPCCharacterView fashonDesigner = null;
         [SerializeField] private InteractionArea fashonDesignerArea = null;
+        #endregion
 
+        #region PRIVATE_FIELDS
         private Dictionary<string, List<BodyPartItemSO>> categoryItemsDic = null;
         private Dictionary<string, int> categoryIndexes = null;
 
         private PlayerView player = null;
+        #endregion
 
+        #region ACTIONS
         public event Action<bool> OnPanelToggled = null;
+        #endregion
 
+        #region PUBLIC_METHODS
         public void Init()
         {
             fashonDesigner.OnInteracted += () => ToggleView(true);
@@ -55,7 +63,9 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
                 categoryIndexes.Add(id, 0);
             }
         }
+        #endregion
 
+        #region PRIVATE_METHODS
         private void ConfigureNextItem(string id)
         {
             if (!categoryItemsDic.ContainsKey(id))
@@ -140,5 +150,6 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
                 player = null;
             }
         }
+        #endregion
     }
 }

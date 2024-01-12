@@ -9,21 +9,25 @@ namespace BlueGravity.Game.Town.Modules.Shop
 {
     public class ShopItemView : MonoBehaviour
     {
+        #region EXOPSED_FIELDS
         [Header("Main Configuration")]
         [SerializeField] private Button tryPurchaseButton = null;
         [SerializeField] private TMP_Text itemTitleText = null;
         [SerializeField] private TMP_Text itemPriceText = null;
         [SerializeField] private Image itemIcon = null;
         [SerializeField] private Image currencyIcon = null;
+        #endregion
 
+        #region PRIVATE_FIELDS
         private string id = string.Empty;
         private int price = 0;
-        private bool isPurchased = false;
+        #endregion
 
+        #region PROPERTIES
         public string Id { get => id; }
-        public int Price { get => price; }
-        public bool IsPurchased { get => isPurchased; }
+        #endregion
 
+        #region PUBLIC_METHODS
         public void Init(Action<ShopItemView> onItemPressed)
         {
             tryPurchaseButton.onClick.AddListener(() => onItemPressed.Invoke(this));
@@ -42,10 +46,6 @@ namespace BlueGravity.Game.Town.Modules.Shop
             itemIcon.rectTransform.localScale = new Vector2(item.ItemSize, item.ItemSize);
             itemIcon.rectTransform.anchoredPosition = itemIcon.rectTransform.anchoredPosition - item.ItemPositionOffset;
         }
-
-        public void SetPurchaseStatus(bool status)
-        {
-            isPurchased = status;
-        }
+        #endregion
     }
 }

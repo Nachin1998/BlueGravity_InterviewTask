@@ -5,6 +5,7 @@ namespace BlueGravity.Common.Characters
 {
     public class UICharacterView : CharacterView<Image>
     {
+        #region PROPERTIES
         public override Sprite HeadAccessorySprite
         {
             get => accessoryRenderer.sprite;
@@ -32,5 +33,6 @@ namespace BlueGravity.Common.Characters
                 costumeRenderer.enabled = value != null;
             }
         }
+        #endregion
     }
 }

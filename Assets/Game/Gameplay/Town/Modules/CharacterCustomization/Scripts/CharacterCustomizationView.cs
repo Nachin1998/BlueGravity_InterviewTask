@@ -13,14 +13,20 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
 {
     public class CharacterCustomizationView : MonoBehaviour
     {
+        #region EXPOSED_FIELDS
+        [Header("Main Configuration")]
         [SerializeField] private Transform holder = null;
         [SerializeField] private Transform categoriesHolder = null;
         [SerializeField] private CustomizationCategoryView categoryViewPrefab = null;
         [SerializeField] private UICharacterView displayPlayer = null;
         [SerializeField] private Button closeButton = null;
+        #endregion
 
+        #region ACTIONS
         public event Action<bool> OnPanelToggled = null;
+        #endregion
 
+        #region PUBLIC_METHODS
         public void Init()
         {
             closeButton.onClick.AddListener(ClosePanel);
@@ -37,11 +43,6 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
             displayPlayer.Copy(player);
         }
 
-        private void ClosePanel()
-        {
-            Toggle(false);
-        }
-
         public void Toggle(bool status)
         {
             holder.gameObject.SetActive(status);
@@ -52,5 +53,13 @@ namespace BlueGravity.Game.Town.Modules.CharacterCustomization
         {
             displayPlayer.SetBodyPart(item);
         }
+        #endregion
+
+        #region PRIVATE_METHODS
+        private void ClosePanel()
+        {
+            Toggle(false);
+        }
+        #endregion
     }
 }
