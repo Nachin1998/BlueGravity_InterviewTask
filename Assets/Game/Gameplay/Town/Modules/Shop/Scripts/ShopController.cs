@@ -36,6 +36,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
         {
             shopKeeper.OnInteracted += TriggerShop;
             view.OnShopToggled += OnShopToggled;
+            view.OnShopToggled += ToggleConfirmationPanelOff;
             view.OnItemPressed += ProcessItem;
             view.Init(items);
 
@@ -115,6 +116,14 @@ namespace BlueGravity.Game.Town.Modules.Shop
         private void TriggerShop()
         {
             view.Toggle(true);
+        }
+
+        private void ToggleConfirmationPanelOff(bool status)
+        {
+            if (!status)
+            {
+                confirmPurchaseView.Toggle(status);
+            }
         }
 
         private ShopItemSO GetShopItem(string id)
