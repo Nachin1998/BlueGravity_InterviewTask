@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -15,10 +16,15 @@ namespace BlueGravity.Common.Currencies
 
         protected List<CurrencyModel> currenciesValues = null;
 
+        public event Action<CurrencyModel> OnCurrencyUpdated = null;
+
         public void Init()
         {
             currenciesValues = new List<CurrencyModel>();
+            OnCurrencyUpdated += view.UpdateCurrencyView;
+
             ConfigureCurrencies();
+            
             view.Init(currencies, currenciesValues);
         }
 
@@ -39,6 +45,7 @@ namespace BlueGravity.Common.Currencies
         {
             CurrencyModel model = GetCurrencyModel(currency.Id);
             model.Value += valueToAdd;
+            OnCurrencyUpdated?.Invoke(model);
             return model.Value;
         }
 
@@ -46,6 +53,7 @@ namespace BlueGravity.Common.Currencies
         {
             CurrencyModel model = GetCurrencyModel(currency.Id);
             model.Value -= valueToSubstract;
+            OnCurrencyUpdated?.Invoke(model);
             return model.Value;
         }
 

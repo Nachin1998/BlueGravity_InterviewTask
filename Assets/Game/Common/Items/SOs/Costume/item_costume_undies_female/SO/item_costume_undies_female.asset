@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11831b57197402740b6df8ffdb84d1ff, type: 3}
-  m_Name: item_costume_undies_1
+  m_Name: item_costume_undies_female
   m_EditorClassIdentifier: 
-  id: item_costume_undies_male
-  icon: {fileID: -1746225332, guid: ac8a20efb5cfcb2468f9d85dead994bf, type: 3}
-  animatorController: {fileID: 22100000, guid: b0530c10b2676ce4688d286bf4b78763, type: 2}
+  id: item_costume_undies_female
+  icon: {fileID: 569052751, guid: 0a65f4bad2daf8745ad0e62717b698c4, type: 3}
+  animatorController: {fileID: 22100000, guid: 7e6f5df3964399746a0554d67c9c4dec, type: 2}
   part: 2

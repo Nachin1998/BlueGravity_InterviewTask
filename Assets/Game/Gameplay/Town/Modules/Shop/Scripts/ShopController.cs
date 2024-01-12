@@ -4,6 +4,7 @@ using UnityEngine;
 
 using BlueGravity.Common.NPC;
 using BlueGravity.Common.Currencies;
+using BlueGravity.Common.Items;
 
 namespace BlueGravity.Game.Town.Modules.Shop
 {
@@ -16,6 +17,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
         [SerializeField] private NPCCharacterView shopKeeper = null;
 
         public event Action<bool> OnShopToggled = null;
+        public event Action<ItemSO> OnItemSold = null;
 
         public void Init()
         {
@@ -73,6 +75,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
             currenciesController.SubstractCurrency(item.CurrencyToUse, item.Price);
             item.IsPurchased = true;
             confirmPurchaseView.Toggle(false);
+            view.GetView(item.Item.Id).Configure(item);
             confirmPurchaseView.OnConfirmed -= CompletePurchase;
         }
 
@@ -81,6 +84,8 @@ namespace BlueGravity.Game.Town.Modules.Shop
             currenciesController.AddCurrency(item.CurrencyToUse, item.SellingPrice);
             item.IsPurchased = false;
             confirmPurchaseView.Toggle(false);
+            OnItemSold?.Invoke(item.Item);
+            view.GetView(item.Item.Id).Configure(item);
             confirmPurchaseView.OnConfirmed -= CompleteSelling;
         }
 

@@ -1,3 +1,4 @@
+using BlueGravity.Common.Items.BodyParts;
 using BlueGravity.Common.Player;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,5 +12,10 @@ public class PlayerController : MonoBehaviour
     public void ToggleInteraction(bool status)
     {
         view.ToggleInteraction(status);
+    }
+
+    public void TryRemovePart(BodyPartItemSO part)
+    {
+        view.RemovePart(part);
     }
 }

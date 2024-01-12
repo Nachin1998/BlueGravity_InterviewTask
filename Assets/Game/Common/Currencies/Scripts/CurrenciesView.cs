@@ -28,6 +28,11 @@ namespace BlueGravity.Common.Currencies
             }
         }
 
+        public void UpdateCurrencyView(CurrencyModel model)
+        {
+            UpdateCurrencyView(model.Id, model.Value);
+        }
+
         public void UpdateCurrencyView(string id, int newValue)
         {
             for (int i = 0; i < activeItems.Count; i++)

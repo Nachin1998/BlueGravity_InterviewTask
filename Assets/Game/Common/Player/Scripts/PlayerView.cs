@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using BlueGravity.Common.Characters;
+using BlueGravity.Common.Items.BodyParts;
 
 namespace BlueGravity.Common.Player
 {

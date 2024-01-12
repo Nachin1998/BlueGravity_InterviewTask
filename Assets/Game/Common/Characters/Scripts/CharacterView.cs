@@ -17,7 +17,7 @@ namespace BlueGravity.Common.Characters
         [SerializeField] private Animator[] bodyAnimators = null;
 
         [Header("Skin Configuration")]
-        [SerializeField] private SkinSO startingSkin = null;
+        [SerializeField] protected SkinSO startingSkin = null;
         
         public abstract Sprite HeadAccessorySprite { get; protected set; }
         public abstract Sprite HeadHairSprite { get; protected set; }
@@ -39,6 +39,11 @@ namespace BlueGravity.Common.Characters
 
         private void SetBodyPart(BodyPartItemSO item)
         {
+            if (item == null)
+            {
+                return;
+            }
+
             switch (item.Part)
             {
                 case BODY_PART.ACCESSORY:
@@ -56,6 +61,31 @@ namespace BlueGravity.Common.Characters
 
             int index = (int)item.Part;
             bodyAnimators[index].runtimeAnimatorController = item.AnimatorController;
+        }
+
+        public void RemovePart(BodyPartItemSO item)
+        {
+            int index = (int)item.Part;
+
+            if (bodyAnimators[index].runtimeAnimatorController == item.AnimatorController)
+            {
+                bodyAnimators[index].runtimeAnimatorController = null;
+
+                switch (item.Part)
+                {
+                    case BODY_PART.ACCESSORY:
+                        HeadAccessorySprite = null;
+                        break;
+
+                    case BODY_PART.HAIR:
+                        HeadHairSprite = null;
+                        break;
+
+                    case BODY_PART.COSTUME:
+                        BodyCostumeSprite = null;
+                        break;
+                }
+            }
         }
 
         protected void SetAnimationSpeed(float speed)

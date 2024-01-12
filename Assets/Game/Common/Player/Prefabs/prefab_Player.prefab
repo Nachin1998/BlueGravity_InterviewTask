@@ -190,7 +190,7 @@ MonoBehaviour:
   - {fileID: 3728433790732609005}
   - {fileID: 5572742793691309661}
   - {fileID: 7369411520925650501}
-  startingSkin: {fileID: 0}
+  startingSkin: {fileID: 11400000, guid: e86ae3e7d1aca4d45927185992f936db, type: 2}
   rigidbody2d: {fileID: 6340372254698708294}
   movementSpeed: 5
 --- !u!212 &3505457535256187767 stripped

@@ -32,12 +32,15 @@ namespace BlueGravity.Game.Town.Modules.Shop
         public void Configure(ShopItemSO item)
         {
             id = item.Item.Id;
-            price = item.Price;
+            price = item.IsPurchased ? item.SellingPrice : item.Price;
+            itemIcon.rectTransform.anchoredPosition = Vector2.zero;
 
             itemTitleText.text = id;
-            itemPriceText.text = price.ToString();
+            itemPriceText.text = item.IsPurchased ? "Sell " + price.ToString() : price.ToString();
             itemIcon.sprite = item.Item.Icon;
-            currencyIcon.sprite = null;
+            currencyIcon.sprite = item.CurrencyToUse.Icon;
+            itemIcon.rectTransform.localScale = new Vector2(item.ItemSize, item.ItemSize);
+            itemIcon.rectTransform.anchoredPosition = itemIcon.rectTransform.anchoredPosition - item.ItemPositionOffset;
         }
 
         public void SetPurchaseStatus(bool status)

@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
@@ -18,17 +18,34 @@ namespace BlueGravity.Game.Town.Modules.Shop
         public event Action OnItemPurchased = null;
 
         private ObjectPool<ShopItemView> shopItemPool = null;
+        private List<ShopItemView> shopItems = null;
 
         public void Init(ShopItemSO[] items)
         {
             shopItemPool = new ObjectPool<ShopItemView>(GenerateItem, GetItem, ReleaseItem);
+            shopItems = new List<ShopItemView>();
             closeButton.onClick.AddListener(ClosePanel);
 
             for (int i = 0; i < items.Length; i++)
             {
                 ShopItemView item = shopItemPool.Get();
                 item.Configure(items[i]);
+                shopItems.Add(item);
             }
+        }
+
+        public ShopItemView GetView(string id)
+        {
+            for (int i = 0;i < shopItems.Count;i++)
+            {
+                if (shopItems[i].Id == id)
+                {
+                    return shopItems[i];
+                }
+            }
+
+            Debug.LogError("Failed to find view of id " + id);
+            return null;
         }
 
         private void ClosePanel()
