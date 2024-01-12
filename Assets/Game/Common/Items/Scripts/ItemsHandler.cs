@@ -2,41 +2,37 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using BlueGravity.Common.Items;
-
-public class ItemsHandler : MonoBehaviour
+namespace BlueGravity.Common.Items
 {
-    [SerializeField] private List<ItemSO> items = null;
-
-    public List<ItemSO> GetItems()
+    public class ItemsHandler : MonoBehaviour
     {
-        return items;
-    }
+        [SerializeField] private List<ItemSO> items = null;
 
-    public List<T> GetItems<T>() where T : ItemSO
-    {
-        List<T> toReturn = new List<T>();
-        for (int i = 0; i < items.Count; i++)
+        public List<T> GetItems<T>() where T : ItemSO
         {
-            if (items[i] is T castedItem)
+            List<T> toReturn = new List<T>();
+            for (int i = 0; i < items.Count; i++)
             {
-                toReturn.Add(castedItem);
+                if (items[i] is T castedItem)
+                {
+                    toReturn.Add(castedItem);
+                }
             }
+
+            return toReturn;
         }
 
-        return toReturn;
-    }
-
-    public T GetItem<T>(string id) where T : ItemSO
-    {
-        for (int i = 0; i < items.Count; i++)
+        public T GetItem<T>(string id) where T : ItemSO
         {
-            if (items[i].Id == id)
+            for (int i = 0; i < items.Count; i++)
             {
-                return items[i] as T;
+                if (items[i].Id == id)
+                {
+                    return items[i] as T;
+                }
             }
-        }
 
-        return null;
+            return null;
+        }
     }
 }

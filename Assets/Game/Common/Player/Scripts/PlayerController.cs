@@ -1,19 +1,21 @@
 using UnityEngine;
 
 using BlueGravity.Common.Items.BodyParts;
-using BlueGravity.Common.Player;
 
-public class PlayerController : MonoBehaviour
+namespace BlueGravity.Common.Player
 {
-    [SerializeField] private PlayerView view = null;
-
-    public void ToggleInteraction(bool status)
+    public class PlayerController : MonoBehaviour
     {
-        view.ToggleInteraction(status);
-    }
+        [SerializeField] private PlayerView view = null;
 
-    public void TryRemovePart(BodyPartItemSO part)
-    {
-        view.RemovePart(part);
+        public void ToggleInteraction(bool status)
+        {
+            view.ToggleInteraction(status);
+        }
+
+        public void TryRemovePart(BodyPartItemSO part)
+        {
+            view.RemovePart(part);
+        }
     }
 }

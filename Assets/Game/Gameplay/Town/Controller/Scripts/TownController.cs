@@ -2,34 +2,28 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using BlueGravity.Common.Controller;
 using BlueGravity.Common.Currencies;
 using BlueGravity.Common.Items;
 using BlueGravity.Common.Items.BodyParts;
+using BlueGravity.Common.Player;
 
 using BlueGravity.Game.Town.Modules.CharacterCustomization;
 using BlueGravity.Game.Town.Modules.Shop;
-using BlueGravity.Common.Audio;
 
 namespace BlueGravity.Game.Town.Controller
 {
-    public class TownController : MonoBehaviour
+    public class TownController : SceneController
     {
-        [SerializeField] private AudioController audioController = null;
-        [SerializeField] private AudioChannel audioChannel = null;
-        [SerializeField] private AudioSO music = null;
-
+        [Header("Town Configuration")]
         [SerializeField] private PlayerController playerController = null;
         [SerializeField] private ShopController shopController = null;
         [SerializeField] private CurrenciesController currenciesController = null;
         [SerializeField] private CharacterCustomizationController characterCustomizationController = null;
         [SerializeField] private ItemsHandler itemsHandler = null;
 
-        private void Awake()
+        protected override void Init()
         {
-            audioController.Init();
-
-            audioChannel.TriggerMusic(music);
-
             currenciesController.Init();
 
             shopController.OnShopToggled += SwitchPlayerInteraction;
