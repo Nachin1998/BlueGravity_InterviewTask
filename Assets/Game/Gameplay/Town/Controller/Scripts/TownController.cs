@@ -1,10 +1,11 @@
 using UnityEngine;
 
-using BlueGravity.Game.Town.Modules.CharacterCustomization;
-using BlueGravity.Game.Town.Modules.Shop;
 using BlueGravity.Common.Currencies;
 using BlueGravity.Common.Items;
 using BlueGravity.Common.Items.BodyParts;
+
+using BlueGravity.Game.Town.Modules.CharacterCustomization;
+using BlueGravity.Game.Town.Modules.Shop;
 
 namespace BlueGravity.Game.Town.Controller
 {

@@ -14,7 +14,7 @@ namespace BlueGravity.Common.Interaction
         {
             interactionArea = interactionArea != null ? interactionArea : GetComponent<InteractionArea>();
             interactionArea.OnTriggerEnter += RecieveInteractable;
-            interactionArea.OnTriggerExit += (obj) => RemoveInteractable();
+            interactionArea.OnTriggerExit += RemoveInteractable;
         }
 
         private void Update()
@@ -34,12 +34,15 @@ namespace BlueGravity.Common.Interaction
             }
         }
 
-        private void RemoveInteractable()
+        private void RemoveInteractable(GameObject obj)
         {
-            if (currentInteractable != null)
+            if (obj.TryGetComponent(out IInteractable interactable))
             {
-                currentInteractable.TogglePopup(false);
-                currentInteractable = null;
+                if (currentInteractable != null && currentInteractable == interactable)
+                {
+                    currentInteractable.TogglePopup(false);
+                    currentInteractable = null;
+                }
             }
         }
     }

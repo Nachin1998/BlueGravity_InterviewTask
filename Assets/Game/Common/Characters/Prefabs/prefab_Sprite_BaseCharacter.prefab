@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 7606987363883059325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.15, y: 1.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7606987364450382999}
@@ -221,9 +221,9 @@ GameObject:
   - component: {fileID: 7606987364450382999}
   - component: {fileID: 7606987364450382996}
   - component: {fileID: 5034167917956196031}
-  - component: {fileID: 7074363720394988041}
   - component: {fileID: 6611478145124948357}
   - component: {fileID: 1277998684539579304}
+  - component: {fileID: 7158798857833223233}
   m_Layer: 0
   m_Name: prefab_Sprite_BaseCharacter
   m_TagString: Untagged
@@ -327,17 +327,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8694818, y: 1.1348722}
   m_EdgeRadius: 0
---- !u!210 &7074363720394988041
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7606987364450382997}
-  m_Enabled: 1
-  m_SortingLayerID: 723268097
-  m_SortingLayer: 2
-  m_SortingOrder: 0
 --- !u!95 &6611478145124948357
 Animator:
   serializedVersion: 4
@@ -379,6 +368,17 @@ MonoBehaviour:
   - {fileID: 1468962592260315082}
   - {fileID: 4571708881778261970}
   startingSkin: {fileID: 0}
+--- !u!210 &7158798857833223233
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606987364450382997}
+  m_Enabled: 1
+  m_SortingLayerID: 723268097
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &7606987364950123246
 GameObject:
   m_ObjectHideFlags: 0
