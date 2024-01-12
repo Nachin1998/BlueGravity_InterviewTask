@@ -68,22 +68,16 @@ namespace BlueGravity.Game.Town.Controller
 
             for (int i = 0; i < items.Count; i++)
             {
-                bool isInShopCatalog = false;
+                ShopItemSO shopItem = shopItems.Find((item) => item.Item == items[i]);
 
-                for (int j = 0; j < shopItems.Count; j++)
+                bool isInShopCatalog = shopItem != null;
+                if (!isInShopCatalog)
                 {
-                    if (items[i] == shopItems[j].Item)
-                    {
-                        isInShopCatalog = true;
-                        if (shopItems[j].IsPurchased)
-                        {
-                            toReturn.Add(items[i]);
-                        }
-                        break;
-                    }
+                    toReturn.Add(items[i]);
+                    continue;
                 }
 
-                if (!isInShopCatalog)
+                if (shopItem.IsPurchased)
                 {
                     toReturn.Add(items[i]);
                 }
