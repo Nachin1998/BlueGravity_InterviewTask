@@ -6,6 +6,7 @@ using UnityEngine;
 using BlueGravity.Common.NPC;
 using BlueGravity.Common.Currencies;
 using BlueGravity.Common.Items;
+using BlueGravity.Common.Audio;
 
 namespace BlueGravity.Game.Town.Modules.Shop
 {
@@ -16,6 +17,10 @@ namespace BlueGravity.Game.Town.Modules.Shop
         [SerializeField] private CurrenciesController currenciesController = null;
         [SerializeField] private List<ShopItemSO> items = null;
         [SerializeField] private NPCCharacterView shopKeeper = null;
+
+        [Header("Audio Configuration")]
+        [SerializeField] private AudioChannel audioChannel = null;
+        [SerializeField] private AudioSO transactionSFX = null;
 
         public event Action<bool> OnShopToggled = null;
         public event Action<ItemSO> OnItemSold = null;
@@ -82,6 +87,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
             currenciesController.SubstractCurrency(item.CurrencyToUse, item.Price);
             item.IsPurchased = true;
             OnItemPurchased?.Invoke(item.Item);
+            audioChannel.TriggerSFX(transactionSFX);
             confirmPurchaseView.Toggle(false);
             view.GetView(item.Item.Id).Configure(item);
             confirmPurchaseView.OnConfirmed -= CompletePurchase;
@@ -93,6 +99,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
             item.IsPurchased = false;
             confirmPurchaseView.Toggle(false);
             OnItemSold?.Invoke(item.Item);
+            audioChannel.TriggerSFX(transactionSFX);
             view.GetView(item.Item.Id).Configure(item);
             confirmPurchaseView.OnConfirmed -= CompleteSelling;
         }

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using BlueGravity.Common.Audio;
+
 namespace BlueGravity.Common.Interaction
 {
     [RequireComponent(typeof(InteractionArea))]
@@ -7,6 +9,8 @@ namespace BlueGravity.Common.Interaction
     {
         [SerializeField] private KeyCode interactionKey = KeyCode.E;
         [SerializeField] private InteractionArea interactionArea = null;
+        [SerializeField] private AudioChannel audioChannel = null;
+        [SerializeField] private AudioSO popupSfx = null;
 
         private IInteractable currentInteractable = null;
 
@@ -31,6 +35,7 @@ namespace BlueGravity.Common.Interaction
             {
                 currentInteractable = interactable;
                 currentInteractable.TogglePopup(true);
+                audioChannel.TriggerSFX(popupSfx);
             }
         }
 

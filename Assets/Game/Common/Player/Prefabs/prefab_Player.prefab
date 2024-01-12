@@ -76,6 +76,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionKey: 101
   interactionArea: {fileID: 6842285252010705069}
+  audioChannel: {fileID: 11400000, guid: 2e79799ada767114aaf94d50dac6f665, type: 2}
+  popupSfx: {fileID: 11400000, guid: 0b1204d308c08014a87df0a1769624ec, type: 2}
 --- !u!1001 &6427922797532934551
 PrefabInstance:
   m_ObjectHideFlags: 0

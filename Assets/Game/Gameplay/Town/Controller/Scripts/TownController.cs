@@ -8,11 +8,16 @@ using BlueGravity.Common.Items.BodyParts;
 
 using BlueGravity.Game.Town.Modules.CharacterCustomization;
 using BlueGravity.Game.Town.Modules.Shop;
+using BlueGravity.Common.Audio;
 
 namespace BlueGravity.Game.Town.Controller
 {
     public class TownController : MonoBehaviour
     {
+        [SerializeField] private AudioController audioController = null;
+        [SerializeField] private AudioChannel audioChannel = null;
+        [SerializeField] private AudioSO music = null;
+
         [SerializeField] private PlayerController playerController = null;
         [SerializeField] private ShopController shopController = null;
         [SerializeField] private CurrenciesController currenciesController = null;
@@ -21,6 +26,10 @@ namespace BlueGravity.Game.Town.Controller
 
         private void Awake()
         {
+            audioController.Init();
+
+            audioChannel.TriggerMusic(music);
+
             currenciesController.Init();
 
             shopController.OnShopToggled += SwitchPlayerInteraction;
