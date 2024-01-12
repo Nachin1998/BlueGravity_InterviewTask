@@ -1,6 +1,6 @@
-using BlueGravity.Common.Audio;
-
 using UnityEngine;
+
+using BlueGravity.Common.Audio;
 
 namespace BlueGravity.Common.Controller
 {
@@ -20,6 +20,18 @@ namespace BlueGravity.Common.Controller
             audioChannel.TriggerMusic(music);
 
             Init();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif
+            }
         }
         #endregion
 

@@ -85,6 +85,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5034167917956196031, guid: ca4a8147c6dd2cf4c9693abb4bb8fb6c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7160096
+      objectReference: {fileID: 0}
+    - target: {fileID: 5034167917956196031, guid: ca4a8147c6dd2cf4c9693abb4bb8fb6c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.39667058
+      objectReference: {fileID: 0}
     - target: {fileID: 7606987364450382997, guid: ca4a8147c6dd2cf4c9693abb4bb8fb6c, type: 3}
       propertyPath: m_Name
       value: prefab_Player
