@@ -1286,15 +1286,13 @@ MonoBehaviour:
   currenciesController: {fileID: 757362137}
   items:
   - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
-  - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
+  - {fileID: 11400000, guid: cf3a15aec22a8b34e9d817694ced0287, type: 2}
+  - {fileID: 11400000, guid: 40786fc9981731f4ba09382f3a5b9fbd, type: 2}
+  - {fileID: 11400000, guid: b13db7054db0b3942b1b1fcc5284371a, type: 2}
+  - {fileID: 11400000, guid: 940fba02d0d33a3488fbb8b6bd99a756, type: 2}
+  - {fileID: 11400000, guid: a3379810201cd3946928750d58e5fb60, type: 2}
+  - {fileID: 11400000, guid: ddc729bc5a2902e449071f3b6cccb293, type: 2}
+  - {fileID: 11400000, guid: 1c4c17eec130bad4da302fccc2a8ef5e, type: 2}
   shopKeeper: {fileID: 749475471}
 --- !u!1 &470339854
 GameObject:
@@ -24417,7 +24415,7 @@ PrefabInstance:
     - target: {fileID: 7398004724117066381, guid: da64da326a944434d896ae96a0107654, type: 3}
       propertyPath: startingSkin
       value: 
-      objectReference: {fileID: 11400000, guid: c5da410924e6796418c9622b73addc3b, type: 2}
+      objectReference: {fileID: 11400000, guid: e86ae3e7d1aca4d45927185992f936db, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da64da326a944434d896ae96a0107654, type: 3}
 --- !u!4 &1823350999 stripped

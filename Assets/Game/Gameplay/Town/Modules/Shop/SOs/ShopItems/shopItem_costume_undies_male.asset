@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8765371d4d2207b4f91cd6b18317e0e6, type: 3}
+  m_Name: shopItem_costume_undies_male
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: f53e8e463f6f3f2479b768b1c7fde3bc, type: 2}
+  currencyToUse: {fileID: 11400000, guid: 685a072994e303448b978f4b14a71b9f, type: 2}
+  price: 5
+  sellingPricePercentage: 56
+  itemSize: 2
+  itemPositionOffset: {x: 0, y: 0}

@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8765371d4d2207b4f91cd6b18317e0e6, type: 3}
-  m_Name: shopItem_costume_naked
+  m_Name: shopItem_hat_villager
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 5c075cd2f11cf7647ac59ae88700fe60, type: 2}
+  item: {fileID: 11400000, guid: 9784e212c5a47f24ebe04bf63441338f, type: 2}
   currencyToUse: {fileID: 11400000, guid: 685a072994e303448b978f4b14a71b9f, type: 2}
-  price: 10
-  sellingPricePercentage: 70
+  price: 30
+  sellingPricePercentage: 34
+  itemSize: 2
+  itemPositionOffset: {x: 0, y: 35}
