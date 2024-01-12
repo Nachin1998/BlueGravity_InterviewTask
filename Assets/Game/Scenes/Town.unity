@@ -1278,6 +1278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 7110622389327489704}
+  confirmPurchaseView: {fileID: 7110622390013337376}
+  currenciesController: {fileID: 757362137}
   items:
   - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
   - {fileID: 11400000, guid: af7f6a218cd0bcd49b94f431effe6f53, type: 2}
@@ -51896,7 +51898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holder: {fileID: 7110622390510172708}
   shopItemsHolder: {fileID: 7110622389816219760}
-  confirmPurchaseView: {fileID: 7110622390013337376}
   closeButton: {fileID: 1202804966}
   shopItemPrefab: {fileID: 5571818044775209506, guid: 49adf6ff0ca65284b8c566a96f202353, type: 3}
 --- !u!222 &7110622389470997624

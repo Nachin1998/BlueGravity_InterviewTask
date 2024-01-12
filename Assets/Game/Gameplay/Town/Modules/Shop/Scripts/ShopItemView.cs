@@ -1,9 +1,9 @@
+using System;
+
 using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
-using System.Diagnostics;
-using System;
 
 namespace BlueGravity.Game.Town.Modules.Shop
 {
@@ -18,9 +18,11 @@ namespace BlueGravity.Game.Town.Modules.Shop
 
         private string id = string.Empty;
         private int price = 0;
+        private bool isPurchased = false;
 
         public string Id { get => id; }
         public int Price { get => price; }
+        public bool IsPurchased { get => isPurchased; }
 
         public void Init(Action<ShopItemView> onItemPressed)
         {
@@ -36,6 +38,11 @@ namespace BlueGravity.Game.Town.Modules.Shop
             itemPriceText.text = price.ToString();
             itemIcon.sprite = item.Item.Icon;
             currencyIcon.sprite = null;
+        }
+
+        public void SetPurchaseStatus(bool status)
+        {
+            isPurchased = status;
         }
     }
 }

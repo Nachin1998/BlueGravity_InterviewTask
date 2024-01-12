@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: shopItem_costume_naked
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 5c075cd2f11cf7647ac59ae88700fe60, type: 2}
+  currencyToUse: {fileID: 11400000, guid: 685a072994e303448b978f4b14a71b9f, type: 2}
   price: 10
-  sellingPriceReductionPercentage: 70
+  sellingPricePercentage: 70

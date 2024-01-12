@@ -10,12 +10,11 @@ namespace BlueGravity.Game.Town.Modules.Shop
     {
         [SerializeField] private Transform holder = null;
         [SerializeField] private Transform shopItemsHolder = null;
-        [SerializeField] private ConfirmPurchaseView confirmPurchaseView = null;
         [SerializeField] private Button closeButton = null;
         [SerializeField] private ShopItemView shopItemPrefab = null;
 
         public event Action<bool> OnShopToggled = null;
-        public event Action OnItemPressed = null;
+        public event Action<ShopItemView> OnItemPressed = null;
         public event Action OnItemPurchased = null;
 
         private ObjectPool<ShopItemView> shopItemPool = null;
@@ -32,11 +31,6 @@ namespace BlueGravity.Game.Town.Modules.Shop
             }
         }
 
-        private void TryConfigureConfirmationPanel(ShopItemView selectedItem)
-        {
-            holder.gameObject.SetActive(false);
-        }
-
         private void ClosePanel()
         {
             Toggle(false);
@@ -51,7 +45,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
         private ShopItemView GenerateItem()
         {
             ShopItemView item = Instantiate(shopItemPrefab, shopItemsHolder);
-            item.Init(TryConfigureConfirmationPanel);
+            item.Init(OnItemPressed);
             return item;
         }
 
