@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 416eaaaefd98d7a488c9d9a121a7a004, type: 3}
-  m_Name: skin_Player
+  m_Name: skin_Fallback
   m_EditorClassIdentifier: 
   accessoryItem: {fileID: 11400000, guid: c9996b120f2e4ec4889bd4b3b407b064, type: 2}
   hairItem: {fileID: 11400000, guid: 94b35e45b2e18cf4aa053610bcdd0705, type: 2}

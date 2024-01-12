@@ -20,13 +20,13 @@ namespace BlueGravity.Game.Town.Modules.Shop
         private ObjectPool<ShopItemView> shopItemPool = null;
         private List<ShopItemView> shopItems = null;
 
-        public void Init(ShopItemSO[] items)
+        public void Init(List<ShopItemSO> items)
         {
             shopItemPool = new ObjectPool<ShopItemView>(GenerateItem, GetItem, ReleaseItem);
             shopItems = new List<ShopItemView>();
             closeButton.onClick.AddListener(ClosePanel);
 
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 ShopItemView item = shopItemPool.Get();
                 item.Configure(items[i]);

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 
 using BlueGravity.Common.Currencies;
@@ -15,13 +17,21 @@ namespace BlueGravity.Game.Town.Controller
         [SerializeField] private ShopController shopController = null;
         [SerializeField] private CurrenciesController currenciesController = null;
         [SerializeField] private CharacterCustomizationController characterCustomizationController = null;
+        [SerializeField] private ItemsHandler itemsHandler = null;
 
-        private void Start()
+        private void Awake()
         {
+            currenciesController.Init();
+
             shopController.OnShopToggled += SwitchPlayerInteraction;
             shopController.OnItemSold += TryRemovePlayerPart;
+            shopController.OnItemSold += (item) => RefreshCustomizationController();
+            shopController.OnItemPurchased += (item) => RefreshCustomizationController();
             shopController.Init();
-            currenciesController.Init();
+
+            characterCustomizationController.OnPanelToggled += SwitchPlayerInteraction;
+            characterCustomizationController.Init();
+            RefreshCustomizationController();
         }
 
         private void SwitchPlayerInteraction(bool status)
@@ -35,6 +45,43 @@ namespace BlueGravity.Game.Town.Controller
             {
                 playerController.TryRemovePart(bodyPartItem);
             }
+        }
+
+        private void RefreshCustomizationController()
+        {
+            characterCustomizationController.RefreshItems(GetDisplayableItems());
+        }
+
+        private List<BodyPartItemSO> GetDisplayableItems()
+        {
+            List<BodyPartItemSO> toReturn = new List<BodyPartItemSO>();
+            List<BodyPartItemSO> items = itemsHandler.GetItems<BodyPartItemSO>();
+            List<ShopItemSO> shopItems = shopController.GetItems();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                bool isInShopCatalog = false;
+
+                for (int j = 0; j < shopItems.Count; j++)
+                {
+                    if (items[i] == shopItems[j].Item)
+                    {
+                        isInShopCatalog = true;
+                        if (shopItems[j].IsPurchased)
+                        {
+                            toReturn.Add(items[i]);
+                        }
+                        break;
+                    }
+                }
+
+                if (!isInShopCatalog)
+                {
+                    toReturn.Add(items[i]);
+                }
+            }
+
+            return toReturn;
         }
     }
 }

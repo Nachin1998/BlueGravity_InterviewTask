@@ -7,7 +7,8 @@ namespace BlueGravity.Common.Items.BodyParts
         INVALID = -1,
         ACCESSORY,
         HAIR,
-        COSTUME
+        COSTUME,
+        MAX
     }
 
     [CreateAssetMenu(fileName = "costume_item_", menuName = "ScriptableObjects/Common/Items/Body Part Item")]

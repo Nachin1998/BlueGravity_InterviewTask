@@ -1,9 +1,7 @@
+using UnityEngine;
+
 using BlueGravity.Common.Items.BodyParts;
 using BlueGravity.Common.Player;
-using System.Collections;
-using System.Collections.Generic;
-
-using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {

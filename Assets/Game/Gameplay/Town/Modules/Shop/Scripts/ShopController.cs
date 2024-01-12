@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using UnityEngine;
 
@@ -13,11 +14,12 @@ namespace BlueGravity.Game.Town.Modules.Shop
         [SerializeField] private ShopView view = null;
         [SerializeField] private ConfirmPurchaseView confirmPurchaseView = null;
         [SerializeField] private CurrenciesController currenciesController = null;
-        [SerializeField] private ShopItemSO[] items = null;
+        [SerializeField] private List<ShopItemSO> items = null;
         [SerializeField] private NPCCharacterView shopKeeper = null;
 
         public event Action<bool> OnShopToggled = null;
         public event Action<ItemSO> OnItemSold = null;
+        public event Action<ItemSO> OnItemPurchased = null;
 
         public void Init()
         {
@@ -27,6 +29,11 @@ namespace BlueGravity.Game.Town.Modules.Shop
             view.Init(items);
 
             confirmPurchaseView.Init();
+        }
+
+        public List<ShopItemSO> GetItems()
+        {
+            return items;
         }
 
         private void ProcessItem(ShopItemView view)
@@ -74,6 +81,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
         {
             currenciesController.SubstractCurrency(item.CurrencyToUse, item.Price);
             item.IsPurchased = true;
+            OnItemPurchased?.Invoke(item.Item);
             confirmPurchaseView.Toggle(false);
             view.GetView(item.Item.Id).Configure(item);
             confirmPurchaseView.OnConfirmed -= CompletePurchase;
@@ -96,7 +104,7 @@ namespace BlueGravity.Game.Town.Modules.Shop
 
         private ShopItemSO GetShopItem(string id)
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 if (items[i].Item.Id == id)
                 {

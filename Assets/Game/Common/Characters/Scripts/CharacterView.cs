@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using System.Collections.Generic;
+
 using BlueGravity.Common.Items.BodyParts;
 using BlueGravity.Common.Skins;
 
@@ -18,10 +20,17 @@ namespace BlueGravity.Common.Characters
 
         [Header("Skin Configuration")]
         [SerializeField] protected SkinSO startingSkin = null;
-        
+        [SerializeField] protected SkinSO fallbackSkin = null;
+
+        private BodyPartItemSO accessoryItem = null;
+        private BodyPartItemSO hairItem = null;
+        private BodyPartItemSO costumeItem = null;
+
         public abstract Sprite HeadAccessorySprite { get; protected set; }
         public abstract Sprite HeadHairSprite { get; protected set; }
         public abstract Sprite BodyCostumeSprite { get; protected set; }
+
+        public List<BodyPartItemSO> BodyParts { get => new List<BodyPartItemSO>() { accessoryItem, hairItem, costumeItem }; }
 
         private readonly int speedHash = Animator.StringToHash("speed");
         private readonly int horizontalHash = Animator.StringToHash("horizontal");
@@ -37,30 +46,43 @@ namespace BlueGravity.Common.Characters
             }
         }
 
-        private void SetBodyPart(BodyPartItemSO item)
+        public void SetBodyPart(BodyPartItemSO item)
         {
             if (item == null)
             {
                 return;
             }
 
+            if (bodyAnimators.Length > 0)
+            {
+                int index = (int)item.Part;
+                bodyAnimators[index].runtimeAnimatorController = item.AnimatorController;
+            }
+
             switch (item.Part)
             {
                 case BODY_PART.ACCESSORY:
                     HeadAccessorySprite = item.Icon;
+                    accessoryItem = item;
                     break;
 
                 case BODY_PART.HAIR:
                     HeadHairSprite = item.Icon;
+                    hairItem = item;
                     break;
 
                 case BODY_PART.COSTUME:
                     BodyCostumeSprite = item.Icon;
+                    costumeItem = item;
                     break;
             }
+        }
 
-            int index = (int)item.Part;
-            bodyAnimators[index].runtimeAnimatorController = item.AnimatorController;
+        public void Copy<T>(CharacterView<T> character) where T : Component
+        {
+            SetBodyPart(character.accessoryItem);
+            SetBodyPart(character.hairItem);
+            SetBodyPart(character.costumeItem);
         }
 
         public void RemovePart(BodyPartItemSO item)
@@ -75,14 +97,17 @@ namespace BlueGravity.Common.Characters
                 {
                     case BODY_PART.ACCESSORY:
                         HeadAccessorySprite = null;
+                        accessoryItem = fallbackSkin.AccessoryItem;
                         break;
 
                     case BODY_PART.HAIR:
                         HeadHairSprite = null;
+                        hairItem = fallbackSkin.HairItem;
                         break;
 
                     case BODY_PART.COSTUME:
                         BodyCostumeSprite = null;
+                        costumeItem = fallbackSkin.CostumeItem;
                         break;
                 }
             }

@@ -368,6 +368,7 @@ MonoBehaviour:
   - {fileID: 1468962592260315082}
   - {fileID: 4571708881778261970}
   startingSkin: {fileID: 0}
+  fallbackSkin: {fileID: 11400000, guid: dcddc0b7436006644ba17c8aa89cbece, type: 2}
 --- !u!210 &7158798857833223233
 SortingGroup:
   m_ObjectHideFlags: 0
